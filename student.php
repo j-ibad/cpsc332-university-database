@@ -41,7 +41,7 @@
 				
 				echo "<h5>" . $_GET["course_num"] . "</h5>"; 
 				
-				echo "</div";
+				echo "</div>";
 			}
 		?>
 	</div>
@@ -63,7 +63,7 @@
 				
 				echo "<h5>" . $_GET["cwid"] . "</h5>"; 
 				
-				echo "</div";
+				echo "</div>";
 			}
 		?>
 	</div>

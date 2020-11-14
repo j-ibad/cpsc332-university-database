@@ -41,7 +41,7 @@
 				
 				echo "<h5>" . $_GET["ssn"] . "</h5>"; 
 				
-				echo "</div";
+				echo "</div>";
 			}
 		?>
 	</div>
@@ -68,18 +68,10 @@
 				echo "<h5>" . $_GET["courseno"] . "</h5>"; 
 				echo "<h5>" . $_GET["sectno"] . "</h5>";
 				
-				echo "</div";
+				echo "</div>";
 			}
 		?>
 	</div>
-	
-	<!-- Done here for now, put into php when ready -->
-	<div class="results">
-		<h5> Title </h5>
-		<h6> Header </h6>
-		<p> Portion </h>
-	</div>
-	
 </div>
 
 <!-- Open the first tab by default (Professor - Course Lookup) -->
