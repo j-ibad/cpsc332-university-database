@@ -47,17 +47,27 @@
 
 	<div id="pCourse" class="tabcontent">
 		<p>This is Course Lookup</p>
-		<form action="professor.php" method="post">
+		<form action="professor.php" method="get">
 			<span> Professor SSN: <input type="text" name="ssn"> <br> </span>
+			<input type="hidden" name="sect" value="pCourse">
 		</form>
 		<?php 
-			echo $_GET[ssn]; 
+			echo $_GET["ssn"]; 
 			
 		?>
 	</div>
 	
 	<div id="pGrade" class="tabcontent">
 		<p>This is Grade Lookup</p>
+		<form action="professor.php" method="get">
+			<span> Enter Course Number: <input type="text" name="course_num"> <br> </span>
+			<span> Enter Course Number: <input type="text" name="section_num"> <br> </span>
+			<input type="hidden" name="sect" value="pGrade">
+		</form>
+		<?php 
+			echo $_GET["course_num"];
+			echo $_GET["course_num"];
+		?>
 	</div>
 
 	
@@ -70,7 +80,7 @@
 </div>
 
 <!-- Open the first tab by default (Professor - Course Lookup) -->
-<script> document.getElementById("defaultOpen").click(); </script>
+<script> document.getElementById(<?php isset(empty($_GET)) ? "defaultOpen" : $_GET["sect"]; ?>).click(); </script>
 	
 </body>
 </html>
