@@ -49,7 +49,7 @@
 		<p>Course Section Lookup</p>
 		<form action="student.php" method="get">
 			<span> Enter Course Number: <input type="text" name="course_num"> <br> </span>
-			<input type="hidden" name="sect" value="sCourse">
+			<input type="hidden" name="sect" value="openSCourse">
 		</form>
 		<?php 
 			if(!empty($_GET) and $_GET["sect"] == "openSCourse"){
@@ -62,7 +62,7 @@
 		<p>Transcripts</p>
 		<form action="student.php" method="get">
 			<span> Enter Student CWID: <input type="text" name="cwid"> <br> </span>
-			<input type="hidden" name="sect" value="sTranscripts">
+			<input type="hidden" name="sect" value="openSTranscripts">
 		</form>
 		<?php 
 			if(!empty($_GET) and $_GET["sect"] == "openSTranscripts"){
@@ -81,7 +81,7 @@
 </div>
 
 <!-- Open the first tab by default (Professor - Course Lookup) -->
-<script> document.getElementById(<?php if(isset(empty($_GET))){echo "openSCourse";}else{$_GET["sect"];} ?>).click(); </script>
+<script> document.getElementById(<?php if(empty($_GET)){echo '"openSCourse"';}else{echo '"' . $_GET["sect"] . '"';} ?>).click(); </script>
 	
 </body>
 </html>

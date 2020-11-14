@@ -52,7 +52,7 @@
 			<input type="hidden" name="sect" value="openPCourse">
 		</form>
 		<?php 
-			if(!empty($_GET) and $_GET["sect"] == "pCourse"){
+			if(!empty($_GET) and $_GET["sect"] == "openPCourse"){
 				echo $_GET["ssn"]; 
 			}
 		?>
@@ -66,7 +66,7 @@
 			<input type="hidden" name="sect" value="openPGrade">
 		</form>
 		<?php 
-			if(!empty($_GET) and $_GET["sect"] == "pGrade"){
+			if(!empty($_GET) and $_GET["sect"] == "openPGrade"){
 				echo $_GET["course_num"];
 				echo $_GET["section_num"];
 			}
@@ -83,7 +83,7 @@
 </div>
 
 <!-- Open the first tab by default (Professor - Course Lookup) -->
-<script> document.getElementById(<?php if(isset(empty($_GET))){echo "openPCourse";}else{$_GET["sect"];} ?>).click(); </script>
+<script> document.getElementById(<?php if(empty($_GET)){echo '"openPCourse"';}else{echo '"' . $_GET["sect"] . '"';} ?>).click(); </script>
 	
 </body>
 </html>
