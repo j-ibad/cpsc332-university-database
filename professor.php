@@ -50,9 +50,11 @@
 		<form action="professor.php" method="get">
 			<span> Professor SSN: <input type="text" name="ssn"> <br> </span>
 			<input type="hidden" name="sect" value="openPCourse">
+			<input type="submit" name="Search" value="optsearch">
+			<input type="submit" name="Clear" value="optclear">
 		</form>
 		<?php 
-			if(!empty($_GET) and $_GET["sect"] == "openPCourse"){
+			if(!empty($_GET) and $_GET["sect"] == "openPCourse" and isset($_GET["optsearch"])){
 				echo $_GET["ssn"]; 
 			}
 		?>
@@ -64,9 +66,11 @@
 			<span> Enter Course Number: <input type="text" name="courseno"> <br> </span>
 			<span> Enter Section Number: <input type="text" name="sectno"> <br> </span>
 			<input type="hidden" name="sect" value="openPGrade">
+			<input type="submit" name="Search" value="optsearch">
+			<input type="submit" name="Clear" value="optclear">
 		</form>
 		<?php 
-			if(!empty($_GET) and $_GET["sect"] == "openPGrade"){
+			if(!empty($_GET) and $_GET["sect"] == "openPGrade" and isset($_GET["optsearch"])){
 				echo $_GET["courseno"]; 
 				echo $_GET["sectno"]; 
 			}

@@ -50,9 +50,11 @@
 		<form action="student.php" method="get">
 			<span> Enter Course Number: <input type="text" name="course_num"> <br> </span>
 			<input type="hidden" name="sect" value="openSCourse">
+			<input type="submit" name="Search" value="optsearch">
+			<input type="submit" name="Clear" value="optclear">
 		</form>
 		<?php 
-			if(!empty($_GET) and $_GET["sect"] == "openSCourse"){
+			if(!empty($_GET) and $_GET["sect"] == "openSCourse" and isset($_GET["optsearch"])){
 				echo $_GET["course_num"];
 			}
 		?>
@@ -63,9 +65,11 @@
 		<form action="student.php" method="get">
 			<span> Enter Student CWID: <input type="text" name="cwid"> <br> </span>
 			<input type="hidden" name="sect" value="openSTranscripts">
+			<input type="submit" name="Search" value="optsearch">
+			<input type="submit" name="Clear" value="optclear">
 		</form>
 		<?php 
-			if(!empty($_GET) and $_GET["sect"] == "openSTranscripts"){
+			if(!empty($_GET) and $_GET["sect"] == "openSTranscripts" and isset($_GET["optsearch"])){
 				echo $_GET["cwid"];
 			}
 		?>
