@@ -11,15 +11,17 @@
 
 <!-- Header with Title and Author Names-->
 <header>
-	<a href="index.html">CSUF - University Database: Professor</a>
+	<a href="index.html">CSUF - University Database</a>
 	<h6>CPSC 332 - 02, Dr. Wang, Fall 2020</h6>
 	<p>By: Sara Rutherfurd, Jacob Coyle, & Josh Ibad<p>
 </header>
 <!-- Body: Welcome message and buttons -->
 <div id="panel" style="position: relative; margin:auto; width: calc(100% - 6%); background-color: black; margin: 3%;">
 	<div class="tab">
+		<p>Professor:</p>
 		<button class="tablinks" onClick="selectTab(event, 'pCourse')" id="openPCourse">Professor's Courses</button>
 		<button class="tablinks" onClick="selectTab(event, 'pGrade')" id="openPGrade">Grade Count</button>
+		<button class="exit" onClick="window.location = 'index.html'">X</button>
 	</div>
 
 	<div id="pCourse" class="tabcontent">
@@ -61,6 +63,13 @@
 				echo $_GET["sectno"]; 
 			}
 		?>
+	</div>
+	
+	<!-- Done here for now, put into php when ready -->
+	<div class="results">
+		<h5> Title </h5>
+		<h6> Header </h6>
+		<p> Portion </h>
 	</div>
 	
 </div>

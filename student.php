@@ -11,15 +11,17 @@
 
 <!-- Header with Title and Author Names-->
 <header>
-	<a href="index.html">CSUF - University Database: Students</a>
+	<a href="index.html">CSUF - University Database</a>
 	<h6>CPSC 332 - 02, Dr. Wang, Fall 2020</h6>
 	<p>By: Sara Rutherfurd, Jacob Coyle, & Josh Ibad<p>
 </header>
 <!-- Body: Welcome message and buttons -->
 <div id="panel" style="position: relative; margin:auto; width: calc(100% - 2 * 3%); background-color: black; margin: 3%;">
 	<div class="tab">
+		<p>Students:</p>
 		<button class="tablinks" onClick="selectTab(event, 'sCourse')" id="openSCourse">Sections</button>
 		<button class="tablinks" onClick="selectTab(event, 'sTranscripts')" id="openSTranscripts">Transcripts</button>
+		<button class="exit" onClick="window.location = 'index.html'">X</button>
 	</div>
 
 	<div id="sCourse" class="tabcontent">
