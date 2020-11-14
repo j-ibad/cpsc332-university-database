@@ -44,11 +44,11 @@
 		<form action="professor.php" method="get">
 			<h5>Section Grade Statistics</h5>
 			<div>
-				<p>Enter Course Number:</p>
+				<p>Course Number:</p>
 				<input type="text" name="courseno"> <br> 
 			</div>
 			<div>
-				<p>Enter Section Number:</p>
+				<p>Section Number:</p>
 				<input type="text" name="sectno"> <br>
 			</div>
 			<input type="hidden" name="sect" value="openPGrade">

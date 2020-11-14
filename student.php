@@ -26,7 +26,7 @@
 		<form action="student.php" method="get">
 			<h5>Course Section Lookup</h5>
 			<div>
-				<p>Enter Course Number:</p>
+				<p>Course Number:</p>
 				<input type="text" name="course_num"> <br>
 			</div>
 			<input type="hidden" name="sect" value="openSCourse">
@@ -44,7 +44,7 @@
 		<form action="student.php" method="get">
 			<h5>Student Record Lookup</h5>
 			<div>
-				<p>Enter Student CWID:</p>
+				<p>Student CWID:</p>
 				<input type="text" name="cwid"> <br>
 			</div>
 			<input type="hidden" name="sect" value="openSTranscripts">
