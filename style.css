@@ -181,9 +181,11 @@ form div input{
 
 .results h6{ /*Results Subheader*/
 	font-size: 1.25em;
+	margin-left: 1em;
 }
 
 .results p{ /*Results text*/
 	font-weight: normal;
 	font-size: 1em;
+	margin-left: 2em;
 }

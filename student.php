@@ -37,7 +37,11 @@
 		</form>
 		<?php 
 			if(!empty($_GET) and $_GET["sect"] == "openSCourse" and isset($_GET["Search"])){
-				echo $_GET["course_num"];
+				echo "<div class='results'>\n";
+				
+				echo "<h5>" . $_GET["course_num"] . "</h5>"; 
+				
+				echo "</div";
 			}
 		?>
 	</div>
@@ -55,7 +59,11 @@
 		</form>
 		<?php 
 			if(!empty($_GET) and $_GET["sect"] == "openSTranscripts" and isset($_GET["Search"])){
-				echo $_GET["cwid"];
+				echo "<div class='results'>\n";
+				
+				echo "<h5>" . $_GET["cwid"] . "</h5>"; 
+				
+				echo "</div";
 			}
 		?>
 	</div>
