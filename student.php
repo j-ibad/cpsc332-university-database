@@ -48,7 +48,10 @@
 	<div id="sCourse" class="tabcontent">
 		<form action="student.php" method="get">
 			<h5>Course Section Lookup</h5>
-			<div> Enter Course Number: <input type="text" name="course_num"> <br> </div>
+			<div>
+				<p>Enter Course Number:</p>
+				<input type="text" name="course_num"> <br>
+			</div>
 			<input type="hidden" name="sect" value="openSCourse">
 			<input type="submit" name="Search" value="Search" class="searchButton">
 			<input type="submit" name="Clear" value="Clear" class="clearButton">
@@ -63,7 +66,10 @@
 	<div id="sTranscripts" class="tabcontent">
 		<form action="student.php" method="get">
 			<h5>Student Record Lookup</h5>
-			<div> Enter Student CWID: <input type="text" name="cwid"> <br> </div>
+			<div>
+				<p>Enter Student CWID:</p>
+				<input type="text" name="cwid"> <br>
+			</div>
 			<input type="hidden" name="sect" value="openSTranscripts">
 			<input type="submit" name="Search" value="Search" class="searchButton">
 			<input type="submit" name="Clear" value="Clear" class="clearButton">

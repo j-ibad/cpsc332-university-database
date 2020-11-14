@@ -83,7 +83,8 @@ header p{
 form { /** Form Background **/
 	background: #0E2052;
 	border-radius: 15px;
-	padding: 0.25em
+	padding: 1em;
+	margin: 1em;
 }
 
 form h5{ /** Form Label **/
@@ -97,9 +98,15 @@ form div{
 	margin-right: 0.25em;
 }
 
+form div p{
+	position: absolute;
+	width: 30%;
+	left: 0px;
+}
+
 form div input{
 	positive: absolute;
-	width: 65%;
+	width: 60%;
 	right: 0px;
 }
 

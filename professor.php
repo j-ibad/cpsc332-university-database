@@ -48,7 +48,10 @@
 	<div id="pCourse" class="tabcontent">
 		<form action="professor.php" method="get">
 			<h5>Course Lookup</h5>
-			<div> Professor SSN: <input type="text" name="ssn"> <br> </div>
+			<div>
+				<p>Professor SSN:</p>
+				<input type="text" name="ssn"> <br>
+			</div>
 			<input type="hidden" name="sect" value="openPCourse">
 			<input type="submit" name="Search" value="Search" class="searchButton">
 			<input type="submit" name="Clear" value="Clear" class="clearButton">
@@ -63,8 +66,14 @@
 	<div id="pGrade" class="tabcontent">
 		<form action="professor.php" method="get">
 			<h5>Section Grade Statistics</h5>
-			<div> Enter Course Number: <input type="text" name="courseno"> <br> </div>
-			<div> Enter Section Number: <input type="text" name="sectno"> <br> </div>
+			<div>
+				<p>Enter Course Number:</p>
+				<input type="text" name="courseno"> <br> 
+			</div>
+			<div>
+				<p>Enter Section Number:</p>
+				<input type="text" name="sectno"> <br>
+			</div>
 			<input type="hidden" name="sect" value="openPGrade">
 			<input type="submit" name="Search" value="Search" class="searchButton">
 			<input type="submit" name="Clear" value="Clear" class="clearButton">
