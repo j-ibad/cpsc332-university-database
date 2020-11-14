@@ -98,7 +98,6 @@ form div{
 }
 
 form div input{
-	display: block;
 	positive: absolute;
 	width: 65%;
 	right: 0px;
