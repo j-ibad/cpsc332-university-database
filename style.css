@@ -1,0 +1,38 @@
+body {
+	background-color: #0B2465;
+	color: #EEEEEE;
+}
+
+header {
+	position: relative;
+	background-color: #0E2052;
+	border-bottom: 8px solid #E68510;
+	width: 100%;
+	height: 100px;
+}
+
+header a{
+	font: bold 24px Roboto, sans-serif;
+	position: absolute;
+	left: 5%;
+	top: 45px;
+}
+a:link{color: #EEEEEE; text-decoration: none;}
+a:visited {color: #EEEEEE; text-decoration: none;}
+a:hover{color: #EEEEEE; text-decoration: none;}
+a:active{color: #EEEEEE; text-decoration: none;}
+
+header h6{
+	font: bold 14px Roboto, sans-serif;
+	position: absolute;
+	right: 5%;
+	top: 13px;
+}
+
+header p{
+	font: 12px Roboto, sans-serif;
+	position: absolute;
+	right: 5%;
+	top: 50px;
+}
+
