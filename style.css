@@ -59,6 +59,7 @@ header p{
 .tab p { /* Section Header */
 	border-bottom: 4px solid #E68510;
 	padding-left: 2%;
+	padding-right: 65%;
 	font: bold 1.375em Roboto, sans-serif;
 }
 
@@ -76,11 +77,11 @@ header p{
 .tab button:hover {background-color: #3B5493;}
 .tab button.active {background-color: #6887D4;	color: #0E2052;}
 
-.exit{
+.tab button.exit{
 	float:right;
 }
 
-.exit:hover {
+.tab button.exit:hover {
 	background-color: #FF4040;
 	color: #FFFFFF
 }
