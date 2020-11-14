@@ -83,6 +83,7 @@ header p{
 form { /** Form Background **/
 	background: #0E2052;
 	border-radius: 15px;
+	padding: 0.25em
 }
 
 form h5{ /** Form Label **/
@@ -90,8 +91,17 @@ form h5{ /** Form Label **/
 	font: bold 18px Roboto, sans-serif;
 }
 
+form div{
+	position: relative;
+	margin-left: 0.25em;
+	margin-right: 0.25em;
+}
+
 form div input{
 	display: block;
+	positive: absolute;
+	width: 65%;
+	right: 0px;
 }
 
 .searchButton{
@@ -99,11 +109,13 @@ form div input{
 	background-color: #32B73F;
 	border: 1px solid #2F2F2F;
 	border-radius: 8px;
+	width: 20%;
 }
 
 .clearButton {
 	font: bold 14px Roboto, sans-serif;
-	background-color: #DB3B3B;
+	background-color: #FF4040;
 	border: 1px solid #2F2F2F;
 	border-radius: 8px;
+	width: 20%;
 }
