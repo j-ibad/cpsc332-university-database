@@ -48,10 +48,10 @@
 	<div id="sCourse" class="tabcontent">
 		<p>Course Section Lookup</p>
 		<form action="student.php" method="get">
-			<span> Enter Course Number: <input type="text" name="course_num"> <br> </span>
+			<div> Enter Course Number: <input type="text" name="course_num"> <br> </div>
 			<input type="hidden" name="sect" value="openSCourse">
-			<input type="submit" name="Search" value="Search">
-			<input type="submit" name="Clear" value="Clear">
+			<input type="submit" name="Search" value="Search" class="searchButton">
+			<input type="submit" name="Clear" value="Clear" class="clearButton">
 		</form>
 		<?php 
 			if(!empty($_GET) and $_GET["sect"] == "openSCourse" and isset($_GET["Search"])){
@@ -63,10 +63,10 @@
 	<div id="sTranscripts" class="tabcontent">
 		<p>Transcripts</p>
 		<form action="student.php" method="get">
-			<span> Enter Student CWID: <input type="text" name="cwid"> <br> </span>
+			<div> Enter Student CWID: <input type="text" name="cwid"> <br> </div>
 			<input type="hidden" name="sect" value="openSTranscripts">
-			<input type="submit" name="Search" value="Search">
-			<input type="submit" name="Clear" value="Clear">
+			<input type="submit" name="Search" value="Search" class="searchButton">
+			<input type="submit" name="Clear" value="Clear" class="clearButton">
 		</form>
 		<?php 
 			if(!empty($_GET) and $_GET["sect"] == "openSTranscripts" and isset($_GET["Search"])){

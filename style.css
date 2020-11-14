@@ -78,3 +78,32 @@ header p{
 	display: none;
 	padding: 6px 12px;
 }
+
+/** Form styling **/
+form { /** Form Background **/
+	background: #0E2052;
+	border-radius: 15px;
+}
+
+form h5{ /** Form Label **/
+	color: #EEEEEE;
+	font: bold 18px Roboto, sans-serif;
+}
+
+form div input{
+	display: block;
+}
+
+.searchButton{
+	font: bold 14px Roboto, sans-serif;
+	background-color: #32B73F;
+	border: 1px solid #2F2F2F;
+	border-radius: 8px;
+}
+
+.clearButton {
+	font: bold 14px Roboto, sans-serif;
+	background-color: #DB3B3B;
+	border: 1px solid #2F2F2F;
+	border-radius: 8px;
+}

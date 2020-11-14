@@ -46,12 +46,12 @@
 	</div>
 
 	<div id="pCourse" class="tabcontent">
-		<p>This is Course Lookup</p>
 		<form action="professor.php" method="get">
-			<span> Professor SSN: <input type="text" name="ssn"> <br> </span>
+			<h5>This is Course Lookup</h5>
+			<div> Professor SSN: <input type="text" name="ssn"> <br> </div>
 			<input type="hidden" name="sect" value="openPCourse">
-			<input type="submit" name="Search" value="Search">
-			<input type="submit" name="Clear" value="Clear">
+			<input type="submit" name="Search" value="Search" class="searchButton">
+			<input type="submit" name="Clear" value="Clear" class="clearButton">
 		</form>
 		<?php 
 			if(!empty($_GET) and $_GET["sect"] == "openPCourse" and isset($_GET["Search"])){
@@ -63,11 +63,11 @@
 	<div id="pGrade" class="tabcontent">
 		<p>This is Grade Lookup</p>
 		<form action="professor.php" method="get">
-			<span> Enter Course Number: <input type="text" name="courseno"> <br> </span>
-			<span> Enter Section Number: <input type="text" name="sectno"> <br> </span>
+			<div> Enter Course Number: <input type="text" name="courseno"> <br> </div>
+			<div> Enter Section Number: <input type="text" name="sectno"> <br> </div>
 			<input type="hidden" name="sect" value="openPGrade">
-			<input type="submit" name="Search" value="Search">
-			<input type="submit" name="Clear" value="Clear">
+			<input type="submit" name="Search" value="Search" class="searchButton">
+			<input type="submit" name="Clear" value="Clear" class="clearButton">
 		</form>
 		<?php 
 			if(!empty($_GET) and $_GET["sect"] == "openPGrade" and isset($_GET["Search"])){
