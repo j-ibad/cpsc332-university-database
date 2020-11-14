@@ -52,9 +52,9 @@
 			<input type="hidden" name="sect" value="sCourse">
 		</form>
 		<?php 
-			if(!empty($_GET) and $_GET["sect"] == "sCourse"):
+			if(!empty($_GET) and $_GET["sect"] == "sCourse"){
 				echo $_GET["course_num"];
-			endif;
+			}
 		?>
 	</div>
 	
@@ -65,9 +65,9 @@
 			<input type="hidden" name="sect" value="sTranscripts">
 		</form>
 		<?php 
-			if(!empty($_GET) and $_GET["sect"] == "sTranscripts"):
+			if(!empty($_GET) and $_GET["sect"] == "sTranscripts"){
 				echo $_GET["cwid"];
-			endif;
+			}
 		?>
 	</div>
 
