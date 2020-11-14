@@ -41,15 +41,15 @@
 <!-- Body: Welcome message and buttons -->
 <div id="panel" style="position: relative; margin:auto; width: calc(100% - 6%); background-color: black; margin: 3%;">
 	<div class="tab">
-		<button class="tablinks" onClick="selectTab(event, 'pCourse')" id="defaultOpen">Professor's Courses</button>
-		<button class="tablinks" onClick="selectTab(event, 'pGrade')">Grade Count</button>
+		<button class="tablinks" onClick="selectTab(event, 'pCourse')" id="openPCourse">Professor's Courses</button>
+		<button class="tablinks" onClick="selectTab(event, 'pGrade')" id="openPGrade">Grade Count</button>
 	</div>
 
 	<div id="pCourse" class="tabcontent">
 		<p>This is Course Lookup</p>
 		<form action="professor.php" method="get">
 			<span> Professor SSN: <input type="text" name="ssn"> <br> </span>
-			<input type="hidden" name="sect" value="pCourse">
+			<input type="hidden" name="sect" value="openPCourse">
 		</form>
 		<?php 
 			if(!empty($_GET) and $_GET["sect"] == "pCourse"){
@@ -62,8 +62,8 @@
 		<p>This is Grade Lookup</p>
 		<form action="professor.php" method="get">
 			<span> Enter Course Number: <input type="text" name="course_num"> <br> </span>
-			<span> Enter Course Number: <input type="text" name="section_num"> <br> </span>
-			<input type="hidden" name="sect" value="pGrade">
+			<span> Enter Section Number: <input type="text" name="section_num"> <br> </span>
+			<input type="hidden" name="sect" value="openPGrade">
 		</form>
 		<?php 
 			if(!empty($_GET) and $_GET["sect"] == "pGrade"){
@@ -83,7 +83,7 @@
 </div>
 
 <!-- Open the first tab by default (Professor - Course Lookup) -->
-<script> document.getElementById(<?php isset(empty($_GET)) ? "defaultOpen" : $_GET["sect"]; ?>).click(); </script>
+<script> document.getElementById(<?php if(isset(empty($_GET))){echo "openPCourse";}else{$_GET["sect"];} ?>).click(); </script>
 	
 </body>
 </html>

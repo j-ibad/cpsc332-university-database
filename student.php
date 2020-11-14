@@ -41,8 +41,8 @@
 <!-- Body: Welcome message and buttons -->
 <div id="panel" style="position: relative; margin:auto; width: calc(100% - 2 * 3%); background-color: black; margin: 3%;">
 	<div class="tab">
-		<button class="tablinks" onClick="selectTab(event, 'sCourse')" id="defaultOpen">Sections</button>
-		<button class="tablinks" onClick="selectTab(event, 'sTranscripts')">Transcripts</button>
+		<button class="tablinks" onClick="selectTab(event, 'sCourse')" id="openSCourse">Sections</button>
+		<button class="tablinks" onClick="selectTab(event, 'sTranscripts')" id="openSTranscripts">Transcripts</button>
 	</div>
 
 	<div id="sCourse" class="tabcontent">
@@ -52,7 +52,7 @@
 			<input type="hidden" name="sect" value="sCourse">
 		</form>
 		<?php 
-			if(!empty($_GET) and $_GET["sect"] == "sCourse"){
+			if(!empty($_GET) and $_GET["sect"] == "openSCourse"){
 				echo $_GET["course_num"];
 			}
 		?>
@@ -65,7 +65,7 @@
 			<input type="hidden" name="sect" value="sTranscripts">
 		</form>
 		<?php 
-			if(!empty($_GET) and $_GET["sect"] == "sTranscripts"){
+			if(!empty($_GET) and $_GET["sect"] == "openSTranscripts"){
 				echo $_GET["cwid"];
 			}
 		?>
@@ -81,7 +81,7 @@
 </div>
 
 <!-- Open the first tab by default (Professor - Course Lookup) -->
-<script> document.getElementById(<?php isset(empty($_GET)) ? "defaultOpen" : $_GET["sect"]; ?>).click(); </script>
+<script> document.getElementById(<?php if(isset(empty($_GET))){echo "openSCourse";}else{$_GET["sect"];} ?>).click(); </script>
 	
 </body>
 </html>
