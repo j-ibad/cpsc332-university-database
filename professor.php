@@ -61,14 +61,12 @@
 	<div id="pGrade" class="tabcontent">
 		<p>This is Grade Lookup</p>
 		<form action="professor.php" method="get">
-			<span> Enter Course Number: <input type="text" name="course_num"> <br> </span>
-			<span> Enter Section Number: <input type="text" name="section_num"> <br> </span>
+			<span> Professor SSN: <input type="text" name="ssn1"> <br> </span>
 			<input type="hidden" name="sect" value="openPGrade">
 		</form>
 		<?php 
 			if(!empty($_GET) and $_GET["sect"] == "openPGrade"){
-				echo $_GET["course_num"];
-				echo $_GET["section_num"];
+				echo $_GET["ssn1"]; 
 			}
 		?>
 	</div>
