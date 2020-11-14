@@ -123,15 +123,18 @@ form div p{
 
 form div input{
 	background-color: #6887D5;
-	color: #BBBBBB;
+	color: #FFFFFF;
 	font: 1em Robot, sans-serif;
 	width: 55%;
 	top: 0px;
 	right: 15%;
+	text-shadow: -0.5px -0.5px 0 #CC6E17, 0.5px -0.5px 0 #CC6E17, -0.5px 0.5px 0 #CC6E17, 0.5px 0.5px 0 #CC6E17;
+	padding-left: 1em;
 }
 
 .searchButton{
-	font: bold 14px Roboto, sans-serif;
+	position: absolute;
+	font: bold 0.9em Roboto, sans-serif;
 	background-color: #32B73F;
 	border: 1px solid #2F2F2F;
 	border-radius: 8px;
@@ -141,7 +144,8 @@ form div input{
 }
 
 .clearButton {
-	font: bold 14px Roboto, sans-serif;
+	position: absolute;
+	font: bold 0.9em Roboto, sans-serif;
 	background-color: #FF4040;
 	border: 1px solid #2F2F2F;
 	border-radius: 8px;
