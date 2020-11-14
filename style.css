@@ -40,6 +40,12 @@ header p{
 	top: 50px;
 }
 
+@media only screen and (max-width: 600px){
+	header {height: 125px;}
+	header h6{top: 53px;}
+	header p{top: 90px;}
+}
+
 /** Tabs styling **/
 .tab {
 	padding-left: 1%;
@@ -53,7 +59,7 @@ header p{
 .tab button {
 	background-color: inherit;
 	color: #6887D4;
-	font: bold 18px Roboto, sans-serif;
+	font: bold 1.25em Roboto, sans-serif;
 	float: left;
 	border: none;
 	outline: none;
@@ -81,33 +87,47 @@ header p{
 
 /** Form styling **/
 form { /** Form Background **/
+	position: relative;
 	background: #0E2052;
 	border-radius: 15px;
 	padding: 1em;
 	margin: 1em;
+	padding-bottom: 3em;
 }
 
 form h5{ /** Form Label **/
 	color: #EEEEEE;
-	font: bold 18px Roboto, sans-serif;
+	font: bold 1.5em Roboto, sans-serif;
+	margin-bottom: 12px;
+	margin-top: 12px;
 }
 
 form div{
 	position: relative;
-	margin-left: 0.25em;
-	margin-right: 0.25em;
+	margin-left: 1em;
+	margin-right: 1em;
+	height: 2em;
 }
-
-form div p{
+form div *{
 	position: absolute;
-	width: 30%;
-	left: 0px;
+	display: inline;
+	margin-top: 0px;
+}
+form div p{
+	font: 1em Roboto, sans-serif;
+	width: 25%;
+	text-align: right;
+	top: 2px;
+	left: 1em;
 }
 
 form div input{
-	positive: absolute;
-	width: 60%;
-	right: 0px;
+	background-color: #6887D5;
+	color: #BBBBBB;
+	font: 1em Robot, sans-serif;
+	width: 55%;
+	top: 0px;
+	right: 15%;
 }
 
 .searchButton{
@@ -116,6 +136,8 @@ form div input{
 	border: 1px solid #2F2F2F;
 	border-radius: 8px;
 	width: 20%;
+	margin-left: 25%;
+	transform: translate(0, 1em);
 }
 
 .clearButton {
@@ -124,4 +146,6 @@ form div input{
 	border: 1px solid #2F2F2F;
 	border-radius: 8px;
 	width: 20%;
+	margin-left: 55%;
+	transform: translate(0, 1em);
 }
