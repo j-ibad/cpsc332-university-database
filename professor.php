@@ -47,9 +47,10 @@
 
 	<div id="pCourse" class="tabcontent">
 		<p>This is Course Lookup</p>
-		<form action="professor.php" method="post">
-			<span> Professor SSN: <input type="text" name="ssn"> <br> </span>
-		</form>
+		<?php 
+			echo $_GET[ssn]; 
+			
+		?>
 	</div>
 	
 	<div id="pGrade" class="tabcontent">

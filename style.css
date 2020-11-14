@@ -1,8 +1,10 @@
+/** General Styles **/
 body {
 	background-color: #0B2465;
 	color: #EEEEEE;
 }
 
+/** Header Styles **/
 header {
 	position: relative;
 	background-color: #0E2052;
@@ -11,9 +13,13 @@ header {
 	height: 100px;
 }
 
+header *{
+	background-color: #0E2052;
+	position: absolute;
+}
+
 header a{
 	font: bold 24px Roboto, sans-serif;
-	position: absolute;
 	left: 5%;
 	top: 45px;
 }
@@ -24,15 +30,51 @@ a:active{color: #EEEEEE; text-decoration: none;}
 
 header h6{
 	font: bold 14px Roboto, sans-serif;
-	position: absolute;
 	right: 5%;
 	top: 13px;
 }
 
 header p{
 	font: 12px Roboto, sans-serif;
-	position: absolute;
 	right: 5%;
 	top: 50px;
 }
 
+/** Tabs styling **/
+.tab {
+	padding-left: 1%;
+	padding-top: 4px;
+	overflow: hidden;
+	border: 4px solid #0E2052;
+	border-bottom: none;
+	background-color: #0E2052;
+}
+
+.tab button {
+	background-color: inherit;
+	color: #6887D4;
+	font: bold 18px Roboto, sans-serif;
+	float: left;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	padding: 14px 16px;
+	transition: 0.3s;
+}
+
+.tab button:hover {
+	background-color: #3B5493;
+}
+
+.tab button.active {
+	background-color: #6887D4;
+	color: #0E2052;
+}
+
+.tabcontent {
+	background-color: #6887D4;
+	border: 4px solid #0E2052;
+	border-top: none;
+	display: none;
+	padding: 6px 12px;
+}
