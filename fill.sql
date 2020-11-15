@@ -42,7 +42,7 @@ INSERT INTO Section(Section_number, Course_ID, Classroom, No_seats, Begin_time, 
 VALUES (19620, "CPSC-362", "CS-309", 45, '09:00', '10:50', 222222222);
 
 INSERT INTO Section(Section_number, Course_ID, Classroom, No_seats, Begin_time, End_time, P_SSN)
-VALUES (13071, "MATH-250A". "MH-401", 35, '08:00', '09:50', 333333333);
+VALUES (13071, "MATH-250A", "MH-401", 35, '08:00', '09:50', 333333333);
 
 INSERT INTO Section(Section_number, Course_ID, Classroom, No_seats, Begin_time, End_time, P_SSN)
 VALUES (13072, "MATH-250A", "MH-401", 35, '10:00', '11:50', 333333333);
