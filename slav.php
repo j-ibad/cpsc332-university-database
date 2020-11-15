@@ -1,4 +1,4 @@
 <?php
-	$sql_pwd = "T6p31Zy7TDIPVmYqwSdl";
+	$sql_pwd = "oDohnae5";
 	$sql_usr = "cs332f15";
 ?>
