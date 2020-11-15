@@ -24,7 +24,7 @@ CREATE TABLE Department(
 	ChairSSN INT NOT NULL,
 	
 	PRIMARY KEY (Dep_ID),
-	FOREIGN KEY (ChairSSN) REFERENCES Professor.SSN
+	FOREIGN KEY (ChairSSN) REFERENCES Professor(SSN)
 );
 
 CREATE TABLE Course (
@@ -35,7 +35,7 @@ CREATE TABLE Course (
 	Dep_ID VARCHAR(12) NOT NULL,
 	
 	PRIMARY KEY (Course_ID),
-	FOREIGN KEY (Dep_ID) REFERENCES Department.Dep_ID
+	FOREIGN KEY (Dep_ID) REFERENCES Department(Dep_ID)
 );
 
 CREATE TABLE Section (
@@ -48,8 +48,8 @@ CREATE TABLE Section (
 	P_SSN INT NOT NULL
 	
 	PRIMARY KEY (Section_number),
-	FOREIGN KEY (Course_ID) REFERENCES Course.Course_ID,
-	FOREIGN KEY (P_SSN) REFERENCES Professor.SSN
+	FOREIGN KEY (Course_ID) REFERENCES Course(Course_ID),
+	FOREIGN KEY (P_SSN) REFERENCES Professor(SSN)
 );
 
 CREATE TABLE Student (
@@ -61,7 +61,7 @@ CREATE TABLE Student (
 	Major_DepID VARCHAR(12) NOT NULL,
 	
 	PRIMARY KEY (CWID),
-	FOREIGN KEY (Major_DepID) REFERENCES Department.Dep_ID
+	FOREIGN KEY (Major_DepID) REFERENCES Department(Dep_ID)
 );
 
 
@@ -70,7 +70,7 @@ CREATE TABLE Minor (
 	Dep_ID VARCHAR(12) NOT NULL,
 	
 	FOREIGN KEY (CWID) REFERENCES Student.CWID,
-	FOREIGN KEY (Dep_ID) REFERENCES Department.Dep_ID
+	FOREIGN KEY (Dep_ID) REFERENCES Department(Dep_ID)
 );
 
 CREATE TABLE Enrollment (
@@ -86,8 +86,8 @@ CREATE TABLE Prerequisite (
 	Course_ID CHAR(9) NOT NULL,
 	Prerequisite_ID CHAR(9) NOT NULL,
 	
-	FOREIGN KEY (Course_ID) REFERENCES Course.Course_ID,
-	FOREIGN KEY (Prerequisite_ID) REFERENCES Course.Course_ID
+	FOREIGN KEY (Course_ID) REFERENCES Course(Course_ID),
+	FOREIGN KEY (Prerequisite_ID) REFERENCES Course(Course_ID)
 );
 
 CREATE TABLE Meeting (
@@ -95,6 +95,6 @@ CREATE TABLE Meeting (
 	Section_number MEDIUMINT NOT NULL,
 	Day_no TINYINT NOT NULL: 
 	
-	FOREIGN KEY (Course_ID) REFERENCES Course.Course_ID,
-	FOREIGN KEY (Section_number) REFERENCES Section.Section_number
+	FOREIGN KEY (Course_ID) REFERENCES Course(Course_ID),
+	FOREIGN KEY (Section_number) REFERENCES Section(Section_number)
 );
