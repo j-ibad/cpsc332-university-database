@@ -5,8 +5,7 @@
 <link rel="stylesheet" type="text/css" href="style.css">
 <script src="tabs.js"></script>
 <?php include 'slav.php'; 
-	$link = mysql_connect('ecsmysql', $sql_usr, $sql_pwd);
-
+	$db = mysql_connect('ecsmysql', $sql_usr, $sql_pwd);
 ?>
 </head>
 
@@ -19,6 +18,10 @@
 	<h6>CPSC 332 - 02, Dr. Wang, Fall 2020</h6>
 	<p>By: Sara Rutherfurd, Jacob Coyle, & Josh Ibad<p>
 </header>
+
+<!-- If cannot connect to database, print error message-->
+<?php if(!$db){echo "<h6>"; die("Failed to connect to MySQL Database Server:</h6>\n<h5>" . mysql_error()); echo "</h5>";}?>
+	
 <!-- Body: Welcome message and buttons -->
 <div id="panel" style="position: relative; margin:auto; width: calc(100% - 2 * 3%); background-color: black; margin: 3%;">
 	<div class="tab">
@@ -43,17 +46,12 @@
 			if(!empty($_GET) and $_GET["sect"] == "openSCourse" and isset($_GET["Search"])){
 				
 				
-	
-				if(!$link){
-					die('Unable to connect to SQL Database: ' . mysql_error());
-				}
-				echo 'Connected successfully';
-				
 				echo "<div class='results'>\n";
 				
 				echo "<h5>" . $_GET["course_num"] . "</h5>"; 
 				
 				echo "</div>";
+				mysql_close($db);
 			}
 		?>
 	</div>
@@ -76,10 +74,10 @@
 				echo "<h5>" . $_GET["cwid"] . "</h5>"; 
 				
 				echo "</div>";
+				mysql_close($db);
 			}
 		?>
 	</div>
-	
 </div>
 
 <!-- Open the first tab by default (Professor - Course Lookup) -->

@@ -4,7 +4,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=0.6">
 <link rel="stylesheet" type="text/css" href="style.css">
 <script src="tabs.js"></script>
-<?php include 'slav.php'; ?>
+<?php include 'slav.php'; 
+	$db = mysql_connect('ecsmysql', $sql_usr, $sql_pwd);
+?>
 </head>
 
 <!-- Start of Body -->
@@ -16,6 +18,10 @@
 	<h6>CPSC 332 - 02, Dr. Wang, Fall 2020</h6>
 	<p>By: Sara Rutherfurd, Jacob Coyle, & Josh Ibad<p>
 </header>
+
+<!-- If cannot connect to database, print error message-->
+<?php if(!$db){echo "<h6>"; die("Failed to connect to MySQL Database Server:</h6>\n<h5>" . mysql_error()); echo "</h5>";}?>
+
 <!-- Body: Welcome message and buttons -->
 <div id="panel" style="position: relative; margin:auto; width: calc(100% - 6%); background-color: black; margin: 3%;">
 	<div class="tab">
@@ -43,6 +49,7 @@
 				echo "<h5>" . $_GET["ssn"] . "</h5>"; 
 				
 				echo "</div>";
+				mysql_close($db);
 			}
 		?>
 	</div>
@@ -70,6 +77,7 @@
 				echo "<h5>" . $_GET["sectno"] . "</h5>";
 				
 				echo "</div>";
+				mysql_close($db);
 			}
 		?>
 	</div>
