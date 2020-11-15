@@ -42,8 +42,7 @@
 				$db = mysql_connect('ecsmysql', $sql_usr, $sql_pwd);
 				if(!$db){echo "<h1>"; die("Failed to connect to MySQL Database Server:</h1>\n<h2>" . mysql_error()); echo "</h2>";}
 				$query = "";
-				$res = mysql_query($query, $db)
-				or echo "<h5>" or die(mysql_error());
+				$res = mysql_query($query, $db);
 				
 				//Print results in format
 				
@@ -73,8 +72,7 @@
 				$db = mysql_connect('ecsmysql', $sql_usr, $sql_pwd);
 				if(!$db){echo "<h1>"; die("Failed to connect to MySQL Database Server:</h1>\n<h2>" . mysql_error()); echo "</h2>";}
 				$query = "";
-				$res = mysql_query($query, $db)
-				or echo "<h5>" or die(mysql_error());
+				$res = mysql_query($query, $db);
 				
 				//Print results in format
 				echo "<div class='results'>\n";
