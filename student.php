@@ -4,6 +4,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=0.6">
 <link rel="stylesheet" type="text/css" href="style.css">
 <script src="tabs.js"></script>
+<?php include 'slav.php'; 
+	$link = mysql_connect('ecsmysql', $sql_usr, $sql_pwd);
+
+?>
 </head>
 
 <!-- Start of Body -->
@@ -37,6 +41,14 @@
 		</form>
 		<?php 
 			if(!empty($_GET) and $_GET["sect"] == "openSCourse" and isset($_GET["Search"])){
+				
+				
+	
+				if(!$link){
+					die('Unable to connect to SQL Database: ' . mysql_error());
+				}
+				echo 'Connected successfully';
+				
 				echo "<div class='results'>\n";
 				
 				echo "<h5>" . $_GET["course_num"] . "</h5>"; 
