@@ -69,7 +69,7 @@ CREATE TABLE Minor (
 	CWID INT NOT NULL,
 	Dep_ID VARCHAR(12) NOT NULL,
 	
-	FOREIGN KEY (CWID) REFERENCES Student.CWID,
+	FOREIGN KEY (CWID) REFERENCES Student(CWID),
 	FOREIGN KEY (Dep_ID) REFERENCES Department(Dep_ID)
 );
 
@@ -78,8 +78,8 @@ CREATE TABLE Enrollment (
 	Section_number MEDIUMINT NOT NULL,
 	Grade CHAR(2),
 	
-	FOREIGN KEY (CWID) REFERENCES Student.CWID,
-	FOREIGN KEY (Section_number) REFERENCES Section.Section_number
+	FOREIGN KEY (CWID) REFERENCES Student(CWID),
+	FOREIGN KEY (Section_number) REFERENCES Section(Section_number)
 );
 
 CREATE TABLE Prerequisite (
