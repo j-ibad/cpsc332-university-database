@@ -6,7 +6,7 @@ INSERT INTO Professor(SSN, Pname, Ptitle, Psex, Degree, Salary, Area_code, Tel7D
 VALUES (222222222, "Frank Jackson", "Dr.", "M",  "PhD CS", 181219, 219, 2090829, "9270 Inverness Ave", "Jeffersonville", "IN", 47130);
 
 INSERT INTO Professor(SSN, Pname, Ptitle, Psex, Degree, Salary, Area_code, Tel7Digit, Street, City, State, ZIP)
-VALUES (333333333, "Kayla Warren", "Mrs.", "F",  "MS Math", 120977, 240, 4381325, "59 Snake Hill St", "Elkton", "MD" 21921);
+VALUES (333333333, "Kayla Warren", "Mrs.", "F",  "MS Math", 120977, 240, 4381325, "59 Snake Hill St", "Elkton", "MD", 21921);
 
 /**================= Minimum 2 Departments =================*/
 INSERT INTO Department(Dep_ID, Dep_Name, Dep_TelNum, Office_location, ChairSSN)
