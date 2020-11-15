@@ -41,9 +41,6 @@
 			if(!empty($_GET) and $_GET["sect"] == "openPCourse" and isset($_GET["Search"])){
 				$db = mysql_connect('ecsmysql', $sql_usr, $sql_pwd);
 				if(!$db){echo "<h1>"; die("Failed to connect to MySQL Database Server:</h1>\n<h2>" . mysql_error()); echo "</h2>";}
-				$query = "";
-				$res = mysql_query($query, $db)
-				or echo "<h5>" or die(mysql_error());
 				
 				echo "<div class='results'>\n";
 				
@@ -74,9 +71,6 @@
 			if(!empty($_GET) and $_GET["sect"] == "openPGrade" and isset($_GET["Search"])){
 				$db = mysql_connect('ecsmysql', $sql_usr, $sql_pwd);
 				if(!$db){echo "<h1>"; die("Failed to connect to MySQL Database Server:</h1>\n<h2>" . mysql_error()); echo "</h2>";}
-				$query = "";
-				$res = mysql_query($query, $db)
-				or echo "<h5>" or die(mysql_error());
 				
 				echo "<h5>" . $_GET["courseno"] . "</h5>"; 
 				echo "<h5>" . $_GET["sectno"] . "</h5>";
