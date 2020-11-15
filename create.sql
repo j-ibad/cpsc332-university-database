@@ -45,7 +45,7 @@ CREATE TABLE Section (
 	No_seats TINYINT NOT NULL,
 	Begin_time TIME NOT NULL,
 	End_time TIME NOT NULL,
-	P_SSN INT NOT NULL
+	P_SSN INT NOT NULL,
 	
 	PRIMARY KEY (Section_number),
 	FOREIGN KEY (Course_ID) REFERENCES Course(Course_ID),
@@ -78,7 +78,7 @@ CREATE TABLE Enrollment (
 	Section_number MEDIUMINT NOT NULL,
 	Grade CHAR(2),
 	
-	FOREIGN KEY (CWID) REFERENCES Student.CWID
+	FOREIGN KEY (CWID) REFERENCES Student.CWID,
 	FOREIGN KEY (Section_number) REFERENCES Section.Section_number
 );
 
@@ -93,7 +93,7 @@ CREATE TABLE Prerequisite (
 CREATE TABLE Meeting (
 	Course_ID CHAR(9) NOT NULL,
 	Section_number MEDIUMINT NOT NULL,
-	Day_no TINYINT NOT NULL: 
+	Day_no TINYINT NOT NULL, 
 	
 	FOREIGN KEY (Course_ID) REFERENCES Course(Course_ID),
 	FOREIGN KEY (Section_number) REFERENCES Section(Section_number)
