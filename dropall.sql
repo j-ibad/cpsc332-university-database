@@ -1,0 +1,9 @@
+DROP TABLE Professor;
+DROP TABLE Section;
+DROP TABLE Course;
+DROP TABLE Department;
+DROP TABLE Student;
+DROP TABLE Minor;
+DROP TABLE Enrollment;
+DROP TABLE Prerequisite;
+DROP TABLE Meeting;
