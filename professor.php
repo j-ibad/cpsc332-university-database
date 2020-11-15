@@ -4,9 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=0.6">
 <link rel="stylesheet" type="text/css" href="style.css">
 <script src="tabs.js"></script>
-<?php include 'slav.php'; 
-	$db = mysql_connect('ecsmysql', $sql_usr, $sql_pwd);
-?>
+<?php include 'slav.php';?>
 </head>
 
 <!-- Start of Body -->
@@ -18,9 +16,6 @@
 	<h6>CPSC 332 - 02, Dr. Wang, Fall 2020</h6>
 	<p>By: Sara Rutherfurd, Jacob Coyle, & Josh Ibad<p>
 </header>
-
-<!-- If cannot connect to database, print error message-->
-<?php if(!$db){echo "<h6>"; die("Failed to connect to MySQL Database Server:</h6>\n<h5>" . mysql_error()); echo "</h5>";}?>
 
 <!-- Body: Welcome message and buttons -->
 <div id="panel" style="position: relative; margin:auto; width: calc(100% - 6%); background-color: black; margin: 3%;">
@@ -44,6 +39,12 @@
 		</form>
 		<?php 
 			if(!empty($_GET) and $_GET["sect"] == "openPCourse" and isset($_GET["Search"])){
+				$db = mysql_connect('ecsmysql', $sql_usr, $sql_pwd);
+				if(!$db){echo "<h1>"; die("Failed to connect to MySQL Database Server:</h1>\n<h2>" . mysql_error()); echo "</h2>";}
+				$query = "";
+				$res = mysql_query($query, $db)
+				or echo "<h5>" or die(mysql_error());
+				
 				echo "<div class='results'>\n";
 				
 				echo "<h5>" . $_GET["ssn"] . "</h5>"; 
@@ -71,7 +72,11 @@
 		</form>
 		<?php 
 			if(!empty($_GET) and $_GET["sect"] == "openPGrade" and isset($_GET["Search"])){
-				echo "<div class='results'>\n";
+				$db = mysql_connect('ecsmysql', $sql_usr, $sql_pwd);
+				if(!$db){echo "<h1>"; die("Failed to connect to MySQL Database Server:</h1>\n<h2>" . mysql_error()); echo "</h2>";}
+				$query = "";
+				$res = mysql_query($query, $db)
+				or echo "<h5>" or die(mysql_error());
 				
 				echo "<h5>" . $_GET["courseno"] . "</h5>"; 
 				echo "<h5>" . $_GET["sectno"] . "</h5>";
