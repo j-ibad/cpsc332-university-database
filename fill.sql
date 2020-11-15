@@ -70,7 +70,7 @@ INSERT INTO Student(CWID, Fname,  Lname, S_TelNum, S_Address, Major_DepID)
 VALUES (800007777, "Joe", "Koci", 7144210820, "8264 Windsor St, Ontario, CA 91762", 101);
 
 INSERT INTO Student(CWID, Fname,  Lname, S_TelNum, S_Address, Major_DepID)
-VALUES (800008888, "Eva", "Roger", 7146440514, "8074 E. Rockland Rd, National City, CA 91950", 100);
+VALUES (800008888, "Eva", "Roger", 7146440514, "8074 E Rockland Rd, National City, CA 91950", 100);
 
 /*================= No min =================*/
 INSERT INTO Minor(CWID, Dep_ID)
@@ -154,11 +154,11 @@ INSERT INTO Meeting(Course_ID, Section_number, Day_no)
 VALUES ("CPSC-362", 19620, 4);
 
 INSERT INTO Meeting(Course_ID, Section_number, Day_no)
-VALUES ("MATH-250A". 13071, 1);
+VALUES ("MATH-250A", 13071, 1);
 INSERT INTO Meeting(Course_ID, Section_number, Day_no)
-VALUES ("MATH-250A". 13071, 3);
+VALUES ("MATH-250A", 13071, 3);
 
 INSERT INTO Meeting(Course_ID, Section_number, Day_no)
-VALUES ("MATH-250A". 13072, 2);
+VALUES ("MATH-250A", 13072, 2);
 INSERT INTO Meeting(Course_ID, Section_number, Day_no)
-VALUES ("MATH-250A". 13072, 4);
+VALUES ("MATH-250A", 13072, 4);
