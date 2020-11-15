@@ -132,7 +132,7 @@ VALUES (800008888, 19620, "B");
 INSERT INTO Prerequisite(Course_ID, Prerequisite_ID)
 VALUES ("CPSC-240", "CPSC-131");
 
-/*================= No min =================*/
+/*================= No min (12 Meeting Days) =================*/
 INSERT INTO Meeting(Course_ID, Section_number, Day_no)
 VALUES ("CPSC-131", 13377, 1);
 INSERT INTO Meeting(Course_ID, Section_number, Day_no)
