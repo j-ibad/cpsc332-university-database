@@ -76,6 +76,9 @@
 				$query = "";
 				$res = mysql_query($query, $db);
 				
+				
+				echo "<div class='results'>\n";
+				
 				echo "<h5>" . $_GET["courseno"] . "</h5>"; 
 				echo "<h5>" . $_GET["sectno"] . "</h5>";
 				
