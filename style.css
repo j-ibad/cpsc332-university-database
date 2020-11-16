@@ -108,6 +108,7 @@ form h5{ /** Form Label **/
 	font: bold 1.5em Roboto, sans-serif;
 	margin-bottom: 12px;
 	margin-top: 12px;
+	border-bottom: 2px dashed #E68510;
 }
 
 form div{
@@ -180,7 +181,7 @@ form div input{
 .results h5{ /*Result Header*/
 	font-size: 1.5em;
 	margin-top: 12px;
-	
+	border-bottom: 2px dashed #E68510;
 }
 
 .results h6{ /*Results Subheader*/
@@ -192,3 +193,32 @@ form div input{
 	font-weight: normal;
 	margin-left: 2em;
 }
+
+.results table{
+	border: 2px solid #0E2052;
+}
+
+.results tr{
+	background-color: #0E2052;
+}
+
+.results tr:nth-child(odd){
+	background-color: #0F286D;
+}
+
+.results tr:hover{
+	background-color: #0E2052;
+}
+
+.results th{
+	background-color: #0E2052;
+	font-size: 1.25em;
+	padding: 8px;
+}
+
+.results td{
+	padding: 8px;
+}
+
+
+
