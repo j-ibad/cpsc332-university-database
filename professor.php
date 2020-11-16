@@ -87,7 +87,7 @@
 				mysql_select_db($sql_db, $db);
 				$query = "SELECT E.Grade, Count(*) AS Count
 					FROM Enrollment AS E, Course AS C, Section AS SC, Meeting AS M
-					WHERE C.Course_ID = " . $_GET["courseno"] . " AND SC.Section_number = " . $_GET["sectno"] . 
+					WHERE C.Course_ID = \"" . $_GET["courseno"] . "\" AND SC.Section_number = " . $_GET["sectno"] . 
 					" AND SC.Section_number = M.Section_Number AND M.Course_ID = C.Course_ID AND E.Section_Number = SC.Section_number
 					GROUP BY E.Grade;";
 				$res = mysql_query($query, $db);
