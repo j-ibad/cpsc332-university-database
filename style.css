@@ -109,6 +109,7 @@ form h5{ /** Form Label **/
 	margin-bottom: 12px;
 	margin-top: 12px;
 	border-bottom: 2px dashed #E68510;
+	display: table;
 }
 
 form div{
@@ -182,6 +183,7 @@ form div input{
 	font-size: 1.5em;
 	margin-top: 12px;
 	border-bottom: 2px dashed #E68510;
+	display: table;
 }
 
 .results h6{ /*Results Subheader*/
@@ -211,12 +213,14 @@ form div input{
 }
 
 .results th{
+	border: 1px solid #0E2052;
 	background-color: #0E2052;
 	font-size: 1.25em;
 	padding: 8px;
 }
 
 .results td{
+	border: 1px solid #0E2052;
 	padding: 8px;
 }
 
