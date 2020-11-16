@@ -42,17 +42,21 @@
 				$db = mysql_connect('ecsmysql', $sql_usr, $sql_pwd);
 				if(!$db){echo "<h1>"; die("Failed to connect to MySQL Database Server:</h1>\n<h2>" . mysql_error()); echo "</h2>";}
 				$query = "SELECT C.Ctitle, SC.Classroom, GROUP_CONCAT(M.Day_no) AS Days, SC.Begin_time, SC.End_time
-					FROM Professor AS P, Section AS SC, Meeting AS M, Course AS C
+					FROM Professor AS P, Section AS SC, Meeting AS M, Course AS C 
 					WHERE P.SSN = SC.P_SSN AND SC.Section_number = M.Section_Number 
-					AND C.Course_ID = SC.Course_ID AND P.SSN = 111111111
-					GROUP BY C.Course_ID;";
+					AND C.Course_ID = SC.Course_ID AND P.SSN = ". $_GET["ssn"] . 
+					" GROUP BY C.Course_ID;";
 				$res = mysql_query($query, $db);
 				
 				echo "<div class='results'>\n";
 				
 				echo "<h5>" . $_GET["ssn"] . "</h5>"; 
 				
-				echo "<p>" . $res . "</p>";
+				$i=0;
+				for($i=0; $index<mysql_numrows($res); $i++){
+					echo "<p>" . mysql_result($res, $i, Ctitle) . "</p>";
+				}
+				
 				
 				echo "</div>";
 				mysql_close($db);
