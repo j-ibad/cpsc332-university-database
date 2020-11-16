@@ -41,16 +41,26 @@
 			if(!empty($_GET) and $_GET["sect"] == "openSCourse" and isset($_GET["Search"])){
 				$db = mysql_connect('ecsmysql', $sql_usr, $sql_pwd);
 				if(!$db){echo "<h1>"; die("Failed to connect to MySQL Database Server:</h1>\n<h2>" . mysql_error()); echo "</h2>";}
-				$query = "";
+				mysql_select_db($sql_db, $db);
+				$query = "SELECT SC.Section_number, SC.Classroom, GROUP_CONCAT(DISTINCT M.Day_no) AS DAYS, SC.Begin_time, SC.End_time, Count(S.CWID)
+					FROM Student AS S, Enrollment AS E, Section AS SC, Meeting AS M, Course AS C
+					WHERE C.Course_ID = ". $_GET["course_num"] .
+					" AND C.Course_ID = M.Course_ID AND M.Section_Number = SC.Section_number 
+					AND S.CWID = E.CWID AND E.Section_Number = SC.Section_number
+					GROUP BY SC.Section_Number;";
 				$res = mysql_query($query, $db);
 				
 				//Print results in format
 				
 				echo "<div class='results'>\n";
 				
-				echo "<h5>" . $_GET["course_num"] . "</h5>"; 
+				echo "<h5>" . $_GET["course_num"] . "</h5>";
+				while($row = mysql_fetch_assoc($res)){
+						echo "<p>" . $row['Section_number'] . "</p>";
+				}
 				
 				echo "</div>";
+				mysql_free_result($res);
 				mysql_close($db);
 			}
 		?>
@@ -71,15 +81,25 @@
 			if(!empty($_GET) and $_GET["sect"] == "openSTranscripts" and isset($_GET["Search"])){
 				$db = mysql_connect('ecsmysql', $sql_usr, $sql_pwd);
 				if(!$db){echo "<h1>"; die("Failed to connect to MySQL Database Server:</h1>\n<h2>" . mysql_error()); echo "</h2>";}
-				$query = "";
+				mysql_select_db($sql_db, $db);
+				$query = "SELECT C.Course_ID, E.Grade
+					FROM Student AS S, Enrollment AS E, Section AS SC, Course AS C
+					WHERE S.CWID = " . $_GET["cwid"] .
+					" AND S.CWID = E.CWID AND C.Course_ID = SC.Course_ID 
+					AND E.Section_Number = SC.Section_number;";
 				$res = mysql_query($query, $db);
 				
 				//Print results in format
 				echo "<div class='results'>\n";
 				
 				echo "<h5>" . $_GET["cwid"] . "</h5>"; 
+				echo "<p>Course_ID\t\tGrade</p>";
+				while($row = mysql_fetch_assoc($res)){
+						echo "<p>" . $row['Course_ID'] . "\t:\t" . $row['Grade'] . "</p>";
+				}
 				
 				echo "</div>";
+				mysql_free_result($res);
 				mysql_close($db);
 			}
 		?>

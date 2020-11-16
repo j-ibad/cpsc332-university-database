@@ -44,22 +44,22 @@
 				mysql_select_db($sql_db, $db);
 				$query = "SELECT C.Ctitle, SC.Classroom, GROUP_CONCAT(M.Day_no) AS Days, SC.Begin_time, SC.End_time
 					FROM Professor AS P, Section AS SC, Meeting AS M, Course AS C 
-					WHERE P.SSN = SC.P_SSN AND SC.Section_number = M.Section_Number 
-					AND C.Course_ID = SC.Course_ID AND P.SSN = ". $_GET["ssn"] . 
-					" GROUP BY C.Course_ID;";
+					WHERE P.SSN = ". $_GET["ssn"] . 
+					" AND P.SSN = SC.P_SSN AND SC.Section_number = M.Section_Number
+					AND C.Course_ID = SC.Course_ID
+					GROUP BY C.Course_ID;";
 				$res = mysql_query($query, $db);
 				
 				echo "<div class='results'>\n";
 				
 				echo "<h5>" . $_GET["ssn"] . "</h5>"; 
 				
-				$i=0;
-				for($i=0; $index<mysql_numrows($res); $i++){
-					echo "<p>" . mysql_result($res, $i, Ctitle) . "</p>";
+				while($row = mysql_fetch_assoc($res)){
+						echo "<p>" . $row['Ctitle'] . "</p>";
 				}
 				
-				
 				echo "</div>";
+				mysql_free_result($res);
 				mysql_close($db);
 			}
 		?>
@@ -84,16 +84,25 @@
 			if(!empty($_GET) and $_GET["sect"] == "openPGrade" and isset($_GET["Search"])){
 				$db = mysql_connect('ecsmysql', $sql_usr, $sql_pwd);
 				if(!$db){echo "<h1>"; die("Failed to connect to MySQL Database Server:</h1>\n<h2>" . mysql_error()); echo "</h2>";}
-				$query = "";
+				mysql_select_db($sql_db, $db);
+				$query = "SELECT E.Grade, Count(*) AS Count
+					FROM Enrollment AS E, Course AS C, Section AS SC, Meeting AS M
+					WHERE C.Course_ID = " . $_GET["courseno"] . " AND SC.Section_number = " . $_GET["sectno"] . 
+					" AND SC.Section_number = M.Section_Number AND M.Course_ID = C.Course_ID AND E.Section_Number = SC.Section_number
+					GROUP BY E.Grade;";
 				$res = mysql_query($query, $db);
 				
 				
 				echo "<div class='results'>\n";
 				
-				echo "<h5>" . $_GET["courseno"] . "</h5>"; 
-				echo "<h5>" . $_GET["sectno"] . "</h5>";
+				echo "<h5> Grades for: " . $_GET["courseno"] . ": " . $_GET["sectno"] . "</h5>";
+				echo "<p> Grade \t:\t Count</p>";
+				while($row = mysql_fetch_assoc($res)){
+						echo "<p>" . $row['Grade'] . "\t:\t" . $row['Count'] . "</p>";
+				}
 				
 				echo "</div>";
+				mysql_free_result($res);
 				mysql_close($db);
 			}
 		?>
