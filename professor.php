@@ -44,7 +44,7 @@
 				mysql_select_db($sql_db, $db);
 				$query = "SELECT C.Ctitle, SC.Classroom, GROUP_CONCAT(M.Day_no) AS Days, SC.Begin_time, SC.End_time
 					FROM Professor AS P, Section AS SC, Meeting AS M, Course AS C 
-					WHERE P.SSN = ". $_GET["ssn"] . 
+					WHERE P.SSN = ". formatSSN($_GET["ssn"]) . 
 					" AND P.SSN = SC.P_SSN AND SC.Section_number = M.Section_Number
 					AND C.Course_ID = SC.Course_ID
 					GROUP BY C.Course_ID;";
@@ -52,12 +52,12 @@
 				
 				echo "<div class='results'>\n";
 				if(mysql_num_rows($res)){
-					echo "<h5>" . $_GET["ssn"] . "</h5>"; 
+					echo "<h5>" . formatSSN($_GET["ssn"]) . "</h5>"; 
 					while($row = mysql_fetch_assoc($res)){
 							echo "<p>" . $row['Ctitle'] . "</p>";
 					}
 				}else{
-					echo "<h5> No results found for Professor with SSN: " . $_GET["ssn"] . "</h5>"; 
+					echo "<h5> No results found for Professor with SSN: " . formatSSN($_GET["ssn"]) . "</h5>"; 
 				}
 				echo "</div>";
 				mysql_free_result($res);
@@ -88,7 +88,7 @@
 				mysql_select_db($sql_db, $db);
 				$query = "SELECT E.Grade, Count(*) AS Count
 					FROM Enrollment AS E, Course AS C, Section AS SC, Meeting AS M
-					WHERE C.Course_ID = \"" . $_GET["courseno"] . "\" AND SC.Section_number = " . $_GET["sectno"] . 
+					WHERE C.Course_ID = \"" . formatCourseNo($_GET["courseno"]) . "\" AND SC.Section_number = " . $_GET["sectno"] . 
 					" AND SC.Section_number = M.Section_Number AND M.Course_ID = C.Course_ID AND E.Section_Number = SC.Section_number
 					GROUP BY E.Grade;";
 				$res = mysql_query($query, $db);
@@ -96,13 +96,13 @@
 				
 				echo "<div class='results'>\n";
 				if(mysql_num_rows($res)){
-					echo "<h5> Grades for: " . $_GET["courseno"] . ": " . $_GET["sectno"] . "</h5>";
+					echo "<h5> Grades for: " . formatCourseNo($_GET["courseno"]) . ": " . $_GET["sectno"] . "</h5>";
 					echo "<p> Grade \t:\t Count</p>";
 					while($row = mysql_fetch_assoc($res)){
 							echo "<p>" . $row['Grade'] . "\t:\t" . $row['Count'] . "</p>";
 					}
 				}else{
-					echo "<h5> No results found for " . $_GET["courseno"] . ": " . $_GET["sectno"] . "</h5>"; 
+					echo "<h5> No results found for " . formatCourseNo($_GET["courseno"]) . ": " . $_GET["sectno"] . "</h5>"; 
 				}
 				echo "</div>";
 				mysql_free_result($res);

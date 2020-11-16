@@ -44,7 +44,7 @@
 				mysql_select_db($sql_db, $db);
 				$query = "SELECT SC.Section_number, SC.Classroom, GROUP_CONCAT(DISTINCT M.Day_no) AS DAYS, SC.Begin_time, SC.End_time, Count(S.CWID)
 					FROM Student AS S, Enrollment AS E, Section AS SC, Meeting AS M, Course AS C
-					WHERE C.Course_ID = \"". $_GET["course_num"] .
+					WHERE C.Course_ID = \"". formatCourseNo($_GET["course_num"]) .
 					"\" AND C.Course_ID = M.Course_ID AND M.Section_Number = SC.Section_number 
 					AND S.CWID = E.CWID AND E.Section_Number = SC.Section_number
 					GROUP BY SC.Section_Number;";
@@ -54,12 +54,12 @@
 				
 				echo "<div class='results'>\n";
 				if(mysql_num_rows($res)){
-					echo "<h5>" . $_GET["course_num"] . "</h5>";
+					echo "<h5>" . formatCourseNo($_GET["course_num"]) . "</h5>";
 					while($row = mysql_fetch_assoc($res)){
 							echo "<p>" . $row['Section_number'] . "</p>";
 					}
 				}else{
-					echo "<h5> No results found for Course Number: " . $_GET["course_num"] . "</h5>"; 
+					echo "<h5> No results found for Course Number: " . formatCourseNo($_GET["course_num"]) . "</h5>"; 
 				}
 				echo "</div>";
 				mysql_free_result($res);
@@ -86,7 +86,7 @@
 				mysql_select_db($sql_db, $db);
 				$query = "SELECT C.Course_ID, E.Grade
 					FROM Student AS S, Enrollment AS E, Section AS SC, Course AS C
-					WHERE S.CWID = " . $_GET["cwid"] .
+					WHERE S.CWID = " . formatCWID($_GET["cwid"]) .
 					" AND S.CWID = E.CWID AND C.Course_ID = SC.Course_ID 
 					AND E.Section_Number = SC.Section_number;";
 				$res = mysql_query($query, $db);
@@ -94,13 +94,13 @@
 				//Print results in format
 				echo "<div class='results'>\n";
 				if(mysql_num_rows($res)){
-					echo "<h5>" . $_GET["cwid"] . "</h5>"; 
+					echo "<h5>" . formatCWID($_GET["cwid"]) . "</h5>"; 
 					echo "<p>Course_ID\t\tGrade</p>";
 					while($row = mysql_fetch_assoc($res)){
 							echo "<p>" . $row['Course_ID'] . "\t:\t" . $row['Grade'] . "</p>";
 					}
 				}else{
-					echo "<h5> No results found for Student with CWID: " . $_GET["cwid"] . "</h5>"; 
+					echo "<h5> No results found for Student with CWID: " . formatCWID($_GET["cwid"]) . "</h5>"; 
 				}
 				echo "</div>";
 				mysql_free_result($res);
