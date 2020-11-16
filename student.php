@@ -68,7 +68,7 @@
 						echo "<tr>";
 							echo "<td>" . $row['Section_number'] . "</td>";
 							echo "<td>" . $row['Classroom'] . "</td>";
-							echo "<td>" . $row['Days'] . "</td>";
+							echo "<td>" . numToDays($row['Days']) . "</td>";
 							echo "<td>" . $row['Begin_time'] . "</td>";
 							echo "<td>" . $row['End_time'] . "</td>";
 							echo "<td>" . $row['Count'] . "</td>";
