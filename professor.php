@@ -41,6 +41,7 @@
 			if(!empty($_GET) and $_GET["sect"] == "openPCourse" and isset($_GET["Search"])){
 				$db = mysql_connect('ecsmysql', $sql_usr, $sql_pwd);
 				if(!$db){echo "<h1>"; die("Failed to connect to MySQL Database Server:</h1>\n<h2>" . mysql_error()); echo "</h2>";}
+				mysql_select_db($sql_db, $db);
 				$query = "SELECT C.Ctitle, SC.Classroom, GROUP_CONCAT(M.Day_no) AS Days, SC.Begin_time, SC.End_time
 					FROM Professor AS P, Section AS SC, Meeting AS M, Course AS C 
 					WHERE P.SSN = SC.P_SSN AND SC.Section_number = M.Section_Number 
