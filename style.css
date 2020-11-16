@@ -108,7 +108,7 @@ form h5{ /** Form Label **/
 	font: bold 1.5em Roboto, sans-serif;
 	margin-bottom: 12px;
 	margin-top: 12px;
-	border-bottom: 2px dashed #E68510;
+	border-bottom: 2px solid #E68510;
 	display: table;
 }
 
@@ -182,7 +182,8 @@ form div input{
 .results h5{ /*Result Header*/
 	font-size: 1.5em;
 	margin-top: 12px;
-	border-bottom: 2px dashed #E68510;
+	margin-bottom: 12px;
+	border-bottom: 2px solid #E68510;
 	display: table;
 }
 
@@ -198,6 +199,8 @@ form div input{
 
 .results table{
 	border: 2px solid #0E2052;
+	background-color: #0E2052;
+	margin: auto;
 }
 
 .results tr{
