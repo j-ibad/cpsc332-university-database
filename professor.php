@@ -53,9 +53,23 @@
 				echo "<div class='results'>\n";
 				if(mysql_num_rows($res)){
 					echo "<h5>" . formatSSN($_GET["ssn"]) . "</h5>"; 
+					echo "<table> <tr> 
+							<th> Course name </th>
+							<th> Classroom </th>
+							<th> Meeting Days </th>
+							<th> Start Time </th>
+							<th> End Time </th>
+						</tr>";
 					while($row = mysql_fetch_assoc($res)){
-							echo "<p>" . $row['Ctitle'] . "</p>";
+						echo "<tr>";
+							echo "<td>" . $row['Ctitle'] . "</td>";
+							echo "<td>" . $row['Classroom'] . "</td>";
+							echo "<td>" . $row['Meeting Days'] . "</td>";
+							echo "<td>" . $row['Begin_time'] . "</td>";
+							echo "<td>" . $row['End_time'] . "</td>";
+						echo "</tr>";
 					}
+					echo "</table>";
 				}else{
 					echo "<h5> No results found for Professor with SSN: " . formatSSN($_GET["ssn"]) . "</h5>"; 
 				}
@@ -96,11 +110,18 @@
 				
 				echo "<div class='results'>\n";
 				if(mysql_num_rows($res)){
-					echo "<h5> Grades for: " . formatCourseNo($_GET["courseno"]) . ": " . $_GET["sectno"] . "</h5>";
-					echo "<p> Grade \t:\t Count</p>";
+					echo "<h5> Grade Count for: " . formatCourseNo($_GET["courseno"]) . ": " . $_GET["sectno"] . "</h5>";
+					echo "<table> <tr> 
+							<th> Grade </th>
+							<th> Count </th>
+						</tr>";
 					while($row = mysql_fetch_assoc($res)){
-							echo "<p>" . $row['Grade'] . "\t:\t" . $row['Count'] . "</p>";
+						echo "<tr>";
+							echo "<td>" . $row['Grade'] . "</td>";
+							echo "<td>" . $row['Count'] . "</td>";
+						echo "</tr>";
 					}
+					echo "</table>";
 				}else{
 					echo "<h5> No results found for " . formatCourseNo($_GET["courseno"]) . ": " . $_GET["sectno"] . "</h5>"; 
 				}

@@ -42,7 +42,7 @@
 				$db = mysql_connect('ecsmysql', $sql_usr, $sql_pwd);
 				if(!$db){echo "<h1>"; die("Failed to connect to MySQL Database Server:</h1>\n<h2>" . mysql_error()); echo "</h2>";}
 				mysql_select_db($sql_db, $db);
-				$query = "SELECT SC.Section_number, SC.Classroom, GROUP_CONCAT(DISTINCT M.Day_no) AS DAYS, SC.Begin_time, SC.End_time, Count(S.CWID)
+				$query = "SELECT SC.Section_number, SC.Classroom, GROUP_CONCAT(DISTINCT M.Day_no) AS Days, SC.Begin_time, SC.End_time, Count(S.CWID) AS Count, SC.No_seats
 					FROM Student AS S, Enrollment AS E, Section AS SC, Meeting AS M, Course AS C
 					WHERE C.Course_ID = \"". formatCourseNo($_GET["course_num"]) .
 					"\" AND C.Course_ID = M.Course_ID AND M.Section_Number = SC.Section_number 
@@ -55,9 +55,27 @@
 				echo "<div class='results'>\n";
 				if(mysql_num_rows($res)){
 					echo "<h5>" . formatCourseNo($_GET["course_num"]) . "</h5>";
+					echo "<table> <tr> 
+							<th> Section No. </th>
+							<th> Classroom </th>
+							<th> Meeting Days </th>
+							<th> Start Time </th>
+							<th> End Time </th>
+							<th> No. Enrolled </th>
+							<th> Max Seats </th>
+						</tr>";
 					while($row = mysql_fetch_assoc($res)){
-							echo "<p>" . $row['Section_number'] . "</p>";
+						echo "<tr>";
+							echo "<td>" . $row['Section_number'] . "</td>";
+							echo "<td>" . $row['Classroom'] . "</td>";
+							echo "<td>" . $row['Days'] . "</td>";
+							echo "<td>" . $row['Begin_time'] . "</td>";
+							echo "<td>" . $row['End_time'] . "</td>";
+							echo "<td>" . $row['Count'] . "</td>";
+							echo "<td>" . $row['No_seats'] . "</td>";
+						echo "</tr>";
 					}
+					echo "</table>";
 				}else{
 					echo "<h5> No results found for Course Number: " . formatCourseNo($_GET["course_num"]) . "</h5>"; 
 				}
@@ -84,7 +102,7 @@
 				$db = mysql_connect('ecsmysql', $sql_usr, $sql_pwd);
 				if(!$db){echo "<h1>"; die("Failed to connect to MySQL Database Server:</h1>\n<h2>" . mysql_error()); echo "</h2>";}
 				mysql_select_db($sql_db, $db);
-				$query = "SELECT C.Course_ID, E.Grade
+				$query = "SELECT C.Course_ID, C.Ctitle, E.Grade
 					FROM Student AS S, Enrollment AS E, Section AS SC, Course AS C
 					WHERE S.CWID = " . formatCWID($_GET["cwid"]) .
 					" AND S.CWID = E.CWID AND C.Course_ID = SC.Course_ID 
@@ -95,10 +113,20 @@
 				echo "<div class='results'>\n";
 				if(mysql_num_rows($res)){
 					echo "<h5>" . formatCWID($_GET["cwid"]) . "</h5>"; 
-					echo "<p>Course_ID\t\tGrade</p>";
+					echo "<table> <tr> 
+							<th> Course No.</th>
+							<th> Course Name </th>
+							<th> Grade </th>
+						</tr>";
 					while($row = mysql_fetch_assoc($res)){
-							echo "<p>" . $row['Course_ID'] . "\t:\t" . $row['Grade'] . "</p>";
+						
+						echo "<tr>";
+							echo "<td>" . $row['Course_ID'] . "</td>";
+							echo "<td>" . $row['Ctitle'] . "</td>";
+							echo "<td>" . $row['Grade'] . "</td>";
+						echo "</tr>";
 					}
+					echo "</table>";
 				}else{
 					echo "<h5> No results found for Student with CWID: " . formatCWID($_GET["cwid"]) . "</h5>"; 
 				}

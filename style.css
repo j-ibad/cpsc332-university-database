@@ -173,12 +173,14 @@ form div input{
 }
 
 .results *{ /*All result elements*/
-	font: bold 1.5em Roboto, sans-serif;
+	font: bold 1em Roboto, sans-serif;
 	margin: 0;
 }
 
 .results h5{ /*Result Header*/
+	font-size: 1.5em;
 	margin-top: 12px;
+	
 }
 
 .results h6{ /*Results Subheader*/
@@ -188,6 +190,5 @@ form div input{
 
 .results p{ /*Results text*/
 	font-weight: normal;
-	font-size: 1em;
 	margin-left: 2em;
 }
