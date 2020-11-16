@@ -1,0 +1,9 @@
+SELECT * FROM Professor INTO OUTFILE 'dump.txt';
+SELECT * FROM Department INTO OUTFILE 'dump.txt';
+SELECT * FROM Course INTO OUTFILE 'dump.txt';
+SELECT * FROM Section INTO OUTFILE 'dump.txt';
+SELECT * FROM Student INTO OUTFILE 'dump.txt';
+SELECT * FROM Minor INTO OUTFILE 'dump.txt';
+SELECT * FROM Enrollment INTO OUTFILE 'dump.txt';
+SELECT * FROM Prerequisite INTO OUTFILE 'dump.txt';
+SELECT * FROM Meeting INTO OUTFILE 'dump.txt';
