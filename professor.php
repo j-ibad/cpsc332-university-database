@@ -51,13 +51,14 @@
 				$res = mysql_query($query, $db);
 				
 				echo "<div class='results'>\n";
-				
-				echo "<h5>" . $_GET["ssn"] . "</h5>"; 
-				
-				while($row = mysql_fetch_assoc($res)){
-						echo "<p>" . $row['Ctitle'] . "</p>";
+				if(mysql_num_rows($res)){
+					echo "<h5>" . $_GET["ssn"] . "</h5>"; 
+					while($row = mysql_fetch_assoc($res)){
+							echo "<p>" . $row['Ctitle'] . "</p>";
+					}
+				}else{
+					echo "<h5> No results found for Professor with SSN:" . $_GET["ssn"] . "</h5>"; 
 				}
-				
 				echo "</div>";
 				mysql_free_result($res);
 				mysql_close($db);
@@ -94,13 +95,15 @@
 				
 				
 				echo "<div class='results'>\n";
-				
-				echo "<h5> Grades for: " . $_GET["courseno"] . ": " . $_GET["sectno"] . "</h5>";
-				echo "<p> Grade \t:\t Count</p>";
-				while($row = mysql_fetch_assoc($res)){
-						echo "<p>" . $row['Grade'] . "\t:\t" . $row['Count'] . "</p>";
+				if(mysql_num_rows($res)){
+					echo "<h5> Grades for: " . $_GET["courseno"] . ": " . $_GET["sectno"] . "</h5>";
+					echo "<p> Grade \t:\t Count</p>";
+					while($row = mysql_fetch_assoc($res)){
+							echo "<p>" . $row['Grade'] . "\t:\t" . $row['Count'] . "</p>";
+					}
+				}else{
+					echo "<h5> No results found for " . $_GET["courseno"] . ": " . $_GET["sectno"] . "</h5>"; 
 				}
-				
 				echo "</div>";
 				mysql_free_result($res);
 				mysql_close($db);

@@ -53,12 +53,14 @@
 				//Print results in format
 				
 				echo "<div class='results'>\n";
-				
-				echo "<h5>" . $_GET["course_num"] . "</h5>";
-				while($row = mysql_fetch_assoc($res)){
-						echo "<p>" . $row['Section_number'] . "</p>";
+				if(mysql_num_rows($res)){
+					echo "<h5>" . $_GET["course_num"] . "</h5>";
+					while($row = mysql_fetch_assoc($res)){
+							echo "<p>" . $row['Section_number'] . "</p>";
+					}
+				}else{
+					echo "<h5> No results found for Course Number:" . $_GET["course_num"] . "</h5>"; 
 				}
-				
 				echo "</div>";
 				mysql_free_result($res);
 				mysql_close($db);
@@ -91,13 +93,15 @@
 				
 				//Print results in format
 				echo "<div class='results'>\n";
-				
-				echo "<h5>" . $_GET["cwid"] . "</h5>"; 
-				echo "<p>Course_ID\t\tGrade</p>";
-				while($row = mysql_fetch_assoc($res)){
-						echo "<p>" . $row['Course_ID'] . "\t:\t" . $row['Grade'] . "</p>";
+				if(mysql_num_rows($res)){
+					echo "<h5>" . $_GET["cwid"] . "</h5>"; 
+					echo "<p>Course_ID\t\tGrade</p>";
+					while($row = mysql_fetch_assoc($res)){
+							echo "<p>" . $row['Course_ID'] . "\t:\t" . $row['Grade'] . "</p>";
+					}
+				}else{
+					echo "<h5> No results found for Student with CWID:" . $_GET["cwid"] . "</h5>"; 
 				}
-				
 				echo "</div>";
 				mysql_free_result($res);
 				mysql_close($db);
