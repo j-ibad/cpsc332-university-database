@@ -52,7 +52,7 @@
 				
 				echo "<div class='results'>\n";
 				if(mysql_num_rows($res)){
-					echo "<h5> Courses for Professor w/ SSN: " . formatSSN($_GET["ssn"]) . "</h5>"; 
+					echo "<h5> Courses for Professor with SSN: " . ssnToStr($_GET["ssn"]) . "</h5>"; 
 					echo "<table> <tr> 
 							<th> Course name </th>
 							<th> Classroom </th>
@@ -71,7 +71,7 @@
 					}
 					echo "</table>";
 				}else{
-					echo "<h5> No results found for Professor with SSN: " . formatSSN($_GET["ssn"]) . "</h5>"; 
+					echo "<h5> No results found for Professor with SSN: " . ssnToStr($_GET["ssn"]) . "</h5>"; 
 				}
 				echo "</div>";
 				mysql_free_result($res);

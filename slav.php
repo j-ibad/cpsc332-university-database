@@ -7,6 +7,23 @@
 		return preg_replace("/[^0-9]/", "", trim($temp_input_ssn));
 	}
 	
+	function ssnToStr($temp_input_ssn){
+		$temp_input_snn = preg_replace("/[^0-9]/", "", trim($temp_input_ssn));
+		$temp_len = strlen($temp_input_ssn);
+		$retval = "";
+		if($temp_len > 3){
+			$retval .= substr($temp_input_ssn, 0, 3) . "-";
+			if($temp_len > 5){
+				$retval .= substr($temp_input_ssn, 3, 2) . "-" . substr($temp_input_ssn, 5);
+			}else{
+				$retval .= substr($temp_input_ssn, 3);
+			}
+		}else{
+			$retval .= $temp_input_ssn;
+		}
+		return  $retval;
+	}
+	
 	function formatCourseNo($temp_input_courseno){
 		return trim(strtoupper($temp_input_courseno));
 	}

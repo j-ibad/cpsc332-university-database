@@ -112,7 +112,7 @@
 				//Print results in format
 				echo "<div class='results'>\n";
 				if(mysql_num_rows($res)){
-					echo "<h5>Transcripts for Student w/ CWID: " . formatCWID($_GET["cwid"]) . "</h5>"; 
+					echo "<h5>Transcripts for Student with CWID: " . formatCWID($_GET["cwid"]) . "</h5>"; 
 					echo "<table> <tr> 
 							<th> Course No.</th>
 							<th> Course Name </th>
