@@ -44,8 +44,8 @@
 				mysql_select_db($sql_db, $db);
 				$query = "SELECT SC.Section_number, SC.Classroom, GROUP_CONCAT(DISTINCT M.Day_no) AS DAYS, SC.Begin_time, SC.End_time, Count(S.CWID)
 					FROM Student AS S, Enrollment AS E, Section AS SC, Meeting AS M, Course AS C
-					WHERE C.Course_ID = ". $_GET["course_num"] .
-					" AND C.Course_ID = M.Course_ID AND M.Section_Number = SC.Section_number 
+					WHERE C.Course_ID = \"". $_GET["course_num"] .
+					"\" AND C.Course_ID = M.Course_ID AND M.Section_Number = SC.Section_number 
 					AND S.CWID = E.CWID AND E.Section_Number = SC.Section_number
 					GROUP BY SC.Section_Number;";
 				$res = mysql_query($query, $db);
