@@ -1,0 +1,47 @@
+Professors
+a. Given the social security number of a professor, list the titles, classrooms,
+meeting days and time of his/her classes
+
+(This only needs the Professor SSN)
+
+SELECT C.Ctitle, SC.Classroom, GROUP_CONCAT(M.Day_no) AS Days, SC.Begin_time, SC.End_time
+FROM Professor AS P, Section AS SC, Meeting AS M, Course AS C
+WHERE P.SSN = SC.P_SSN AND SC.Section_number = M.Section_Number 
+AND C.Course_ID = SC.Course_ID AND P.SSN = 111111111 /*Replace with target ssn*/
+GROUP BY C.Course_ID;
+
+SELECT C.Ctitle, SC.Classroom, GROUP_CONCAT(M.Day_no) AS Days, SC.Begin_time, SC.End_time FROM Professor AS P, Section AS SC, Meeting AS M, Course AS C WHERE P.SSN = SC.P_SSN AND SC.Section_number = M.Section_Number AND C.Course_ID = SC.Course_ID AND P.SSN = 111111111 GROUP BY C.Course_ID;
+
+b.  Given a course number and a section number, count how many students get each distinct grade, i.e.  ‘A’, ‘A-’, ‘B+’, ‘B’, ‘B-’, etc.
+
+(This needs Course Number AND Section Number)
+
+SELECT E.Grade, Count(*)
+FROM Enrollment AS E, Course AS C, Section AS SC, Meeting AS M
+WHERE C.Course_ID = "MATH-250A" AND SC.Section_number = "13071" /*Replace with target course no and sec no*/
+AND SC.Section_number = M.Section_Number AND M.Course_ID = C.Course_ID AND E.Section_Number = SC.Section_number
+GROUP BY E.Grade;
+
+Students
+
+a. Given a course number list the sections of the course, including the classrooms, the meeting days and time, and the number of students enrolled in
+each section
+
+(This only needs the Course Number)
+
+SELECT SC.Section_number, SC.Classroom, GROUP_CONCAT(DISTINCT M.Day_no) AS DAYS, SC.Begin_time, SC.End_time, Count(S.CWID)
+FROM Student AS S, Enrollment AS E, Section AS SC, Meeting AS M, Course AS C
+WHERE C.Course_ID = "MATH-250A" /*Replace with course no*/
+AND C.Course_ID = M.Course_ID AND M.Section_Number = SC.Section_number 
+AND S.CWID = E.CWID AND E.Section_Number = SC.Section_number
+GROUP BY SC.Section_Number;
+
+b. Given the campus wide ID of a student, list all courses the student took
+and the grades.
+
+(This only needs the student's CWID)
+
+SELECT C.Course_ID, E.Grade
+FROM Student AS S, Enrollment AS E, Section AS SC, Course AS C
+WHERE S.CWID = 800001111 /*Replace with target cwid*/
+AND S.CWID = E.CWID AND C.Course_ID = SC.Course_ID AND E.Section_Number = SC.Section_number;

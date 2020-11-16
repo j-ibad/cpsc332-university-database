@@ -57,7 +57,7 @@
 							echo "<p>" . $row['Ctitle'] . "</p>";
 					}
 				}else{
-					echo "<h5> No results found for Professor with SSN:" . $_GET["ssn"] . "</h5>"; 
+					echo "<h5> No results found for Professor with SSN: " . $_GET["ssn"] . "</h5>"; 
 				}
 				echo "</div>";
 				mysql_free_result($res);

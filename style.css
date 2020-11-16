@@ -146,9 +146,10 @@ form div input{
 	background-color: #32B73F;
 	border: 1px solid #2F2F2F;
 	border-radius: 8px;
+	height: 2em;
 	width: 20%;
 	margin-left: 25%;
-	transform: translate(0, 1em);
+	transform: translate(0, 0.5em);
 }
 
 .clearButton {
@@ -157,9 +158,10 @@ form div input{
 	background-color: #FF4040;
 	border: 1px solid #2F2F2F;
 	border-radius: 8px;
+	height: 2em;
 	width: 20%;
 	margin-left: 55%;
-	transform: translate(0, 1em);
+	transform: translate(0, 0.5em);
 }
 
 /**---------- Results formatting ---------- **/

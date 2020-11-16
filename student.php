@@ -59,7 +59,7 @@
 							echo "<p>" . $row['Section_number'] . "</p>";
 					}
 				}else{
-					echo "<h5> No results found for Course Number:" . $_GET["course_num"] . "</h5>"; 
+					echo "<h5> No results found for Course Number: " . $_GET["course_num"] . "</h5>"; 
 				}
 				echo "</div>";
 				mysql_free_result($res);
@@ -100,7 +100,7 @@
 							echo "<p>" . $row['Course_ID'] . "\t:\t" . $row['Grade'] . "</p>";
 					}
 				}else{
-					echo "<h5> No results found for Student with CWID:" . $_GET["cwid"] . "</h5>"; 
+					echo "<h5> No results found for Student with CWID: " . $_GET["cwid"] . "</h5>"; 
 				}
 				echo "</div>";
 				mysql_free_result($res);
