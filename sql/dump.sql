@@ -1,9 +1,0 @@
-SELECT * FROM Professor INTO OUTFILE '/home/titan0/cs332f/cs332f15/homepage/dump.txt';
-SELECT * FROM Department INTO OUTFILE '/home/titan0/cs332f/cs332f15/homepage/dump.txt';
-SELECT * FROM Course INTO OUTFILE '/home/titan0/cs332f/cs332f15/homepage/dump.txt';
-SELECT * FROM Section INTO OUTFILE '/home/titan0/cs332f/cs332f15/homepage/dump.txt';
-SELECT * FROM Student INTO OUTFILE '/home/titan0/cs332f/cs332f15/homepage/dump.txt';
-SELECT * FROM Minor INTO OUTFILE '/home/titan0/cs332f/cs332f15/homepage/dump.txt';
-SELECT * FROM Enrollment INTO OUTFILE '/home/titan0/cs332f/cs332f15/homepage/dump.txt';
-SELECT * FROM Prerequisite INTO OUTFILE '/home/titan0/cs332f/cs332f15/homepage/dump.txt';
-SELECT * FROM Meeting INTO OUTFILE '/home/titan0/cs332f/cs332f15/homepage/dump.txt';
