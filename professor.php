@@ -103,7 +103,7 @@
 				$query = "SELECT E.Grade, Count(*) AS Count
 					FROM Enrollment AS E, Course AS C, Section AS SC
 					WHERE C.Course_ID = \"" . formatCourseNo($_GET["courseno"]) . "\" AND SC.Section_number = " . $_GET["sectno"] . 
-					" AND E.Section_Number = SC.Section_number
+					" AND E.Section_Number = SC.Section_number AND C.Course_ID = SC.Course_ID
 					GROUP BY E.Grade;";
 					
 					
