@@ -101,10 +101,14 @@
 				if(!$db){echo "<h1>"; die("Failed to connect to MySQL Database Server:</h1>\n<h2>" . mysql_error()); echo "</h2>";}
 				mysql_select_db($sql_db, $db);
 				$query = "SELECT E.Grade, Count(*) AS Count
-					FROM Enrollment AS E, Course AS C, Section AS SC, Meeting AS M
+					FROM Enrollment AS E, Course AS C, Section AS SC
 					WHERE C.Course_ID = \"" . formatCourseNo($_GET["courseno"]) . "\" AND SC.Section_number = " . $_GET["sectno"] . 
-					" AND SC.Section_number = M.Section_Number AND M.Course_ID = C.Course_ID AND E.Section_Number = SC.Section_number
+					" AND E.Section_Number = SC.Section_number
 					GROUP BY E.Grade;";
+					
+					
+					
+					
 				$res = mysql_query($query, $db);
 				
 				

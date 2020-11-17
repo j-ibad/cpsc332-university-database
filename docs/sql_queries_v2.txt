@@ -10,16 +10,13 @@ WHERE P.SSN = SC.P_SSN AND SC.Section_number = M.Section_Number
 AND C.Course_ID = SC.Course_ID AND P.SSN = 111111111 /*Replace with target ssn*/
 GROUP BY C.Course_ID;
 
-SELECT C.Ctitle, SC.Classroom, GROUP_CONCAT(M.Day_no) AS Days, SC.Begin_time, SC.End_time FROM Professor AS P, Section AS SC, Meeting AS M, Course AS C WHERE P.SSN = SC.P_SSN AND SC.Section_number = M.Section_Number AND C.Course_ID = SC.Course_ID AND P.SSN = 111111111 GROUP BY C.Course_ID;
-
 b.  Given a course number and a section number, count how many students get each distinct grade, i.e.  ‘A’, ‘A-’, ‘B+’, ‘B’, ‘B-’, etc.
 
 (This needs Course Number AND Section Number)
 
-SELECT E.Grade, Count(*)
-FROM Enrollment AS E, Course AS C, Section AS SC, Meeting AS M
-WHERE C.Course_ID = "MATH-250A" AND SC.Section_number = "13071" /*Replace with target course no and sec no*/
-AND SC.Section_number = M.Section_Number AND M.Course_ID = C.Course_ID AND E.Section_Number = SC.Section_number
+SELECT E.Grade, Count(*) AS Count FROM Enrollment AS E, Course AS C, Section AS SC
+WHERE C.Course_ID = "MATH-250A" AND SC.Section_number = 13071
+AND E.Section_Number = SC.Section_number
 GROUP BY E.Grade;
 
 Students
