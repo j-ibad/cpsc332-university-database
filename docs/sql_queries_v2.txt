@@ -15,7 +15,7 @@ b.  Given a course number and a section number, count how many students get each
 (This needs Course Number AND Section Number)
 
 SELECT E.Grade, Count(*) AS Count FROM Enrollment AS E, Course AS C, Section AS SC
-WHERE C.Course_ID = "MATH-250A" AND SC.Section_number = 13071
+WHERE C.Course_ID = "CPSC-131" AND SC.Section_number = 13071
 AND E.Section_Number = SC.Section_number AND C.Course_ID = SC.Course_ID
 GROUP BY E.Grade;
 
@@ -26,10 +26,17 @@ each section
 
 (This only needs the Course Number)
 
-SELECT SC.Section_number, SC.Classroom, GROUP_CONCAT(DISTINCT M.Day_no) AS DAYS, SC.Begin_time, SC.End_time, Count(S.CWID)
+SELECT SC.Section_number, SC.Classroom, GROUP_CONCAT(DISTINCT M.Day_no) AS Days, SC.Begin_time, SC.End_time, CAST((Count(S.CWID)/2) AS INT) AS Count, SC.No_seats
 FROM Student AS S, Enrollment AS E, Section AS SC, Meeting AS M, Course AS C
-WHERE C.Course_ID = "MATH-250A" /*Replace with course no*/
+WHERE C.Course_ID = "CPSC-131"
 AND C.Course_ID = M.Course_ID AND M.Section_Number = SC.Section_number 
+AND S.CWID = E.CWID AND E.Section_Number = SC.Section_number
+
+
+SELECT SC.Section_number, SC.Classroom, GROUP_CONCAT(DISTINCT M.Day_no) AS Days, SC.Begin_time, SC.End_time, CAST((Count(S.CWID)/2) AS INT) AS Count, SC.No_seats
+FROM Student AS S, Enrollment AS E, Section AS SC, Meeting AS M
+WHERE SC.Course_ID = "CPSC-131"
+AND M.Section_Number = SC.Section_number 
 AND S.CWID = E.CWID AND E.Section_Number = SC.Section_number
 GROUP BY SC.Section_Number;
 

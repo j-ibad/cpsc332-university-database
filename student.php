@@ -42,10 +42,10 @@
 				$db = mysql_connect('ecsmysql', $sql_usr, $sql_pwd);
 				if(!$db){echo "<h1>"; die("Failed to connect to MySQL Database Server:</h1>\n<h2>" . mysql_error()); echo "</h2>";}
 				mysql_select_db($sql_db, $db);
-				$query = "SELECT SC.Section_number, SC.Classroom, GROUP_CONCAT(DISTINCT M.Day_no) AS Days, SC.Begin_time, SC.End_time, Count(S.CWID) AS Count, SC.No_seats
-					FROM Student AS S, Enrollment AS E, Section AS SC, Meeting AS M, Course AS C
-					WHERE C.Course_ID = \"". formatCourseNo($_GET["course_num"]) .
-					"\" AND C.Course_ID = M.Course_ID AND M.Section_Number = SC.Section_number 
+				$query = "SELECT SC.Section_number, SC.Classroom, GROUP_CONCAT(DISTINCT M.Day_no) AS Days, SC.Begin_time, SC.End_time, CAST((Count(S.CWID)/2) AS INT) AS Count, SC.No_seats
+					FROM Student AS S, Enrollment AS E, Section AS SC, Meeting AS M
+					WHERE SC.Course_ID = \"". formatCourseNo($_GET["course_num"]) .
+					"\" AND M.Section_Number = SC.Section_number 
 					AND S.CWID = E.CWID AND E.Section_Number = SC.Section_number
 					GROUP BY SC.Section_Number;";
 				$res = mysql_query($query, $db);
