@@ -8,19 +8,21 @@
 	}
 
 	function ssnToStr($temp_input_ssn){
-		$temp_input_snn = preg_replace('/\D/', '', trim($temp_input_ssn));
-		$temp_len = strlen($temp_input_ssn);
-		$retval = "";
-		if($temp_len > 3){
-			$retval .= substr($temp_input_ssn, 0, 3) . "-";
-			if($temp_len > 5){
-				$retval .= substr($temp_input_ssn, 3, 2) . "-" . substr($temp_input_ssn, 5);
-			}else{
-				$retval .= substr($temp_input_ssn, 3);
-			}
-		}else{
-			$retval .= $temp_input_ssn;
-		}
+	  	$invalidarr = array("-", "+");
+	  	$temp_input_ssn = str_replace($invalidarr , "", filter_var($temp_input_ssn, FILTER_SANITIZE_NUMBER_INT));
+
+	  	$temp_len = strlen($temp_input_ssn);
+	  	$retval = "";
+	  	if($temp_len > 3){
+	  	  $retval .= substr($temp_input_ssn, 0, 3) . "-";
+	  	  if($temp_len > 5){
+	    	    $retval .= substr($temp_input_ssn, 3, 2) . "-" . substr($temp_input_ssn, 5);
+	    	  }else{
+	    	    $retval .= substr($temp_input_ssn, 3);
+	    	  }
+	  	}else{
+	  	  $retval .= $temp_input_ssn;
+	  	}
 		return  $retval;
 	}
 	
