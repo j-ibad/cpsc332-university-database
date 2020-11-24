@@ -4,11 +4,11 @@
 	$sql_db = "cs332f15";
 	
 	function formatSSN($temp_input_ssn){
-		return preg_replace("/[^0-9]/", "", trim($temp_input_ssn));
+		return preg_replace('/\D/', '', trim($temp_input_ssn));
 	}
-	
+
 	function ssnToStr($temp_input_ssn){
-		$temp_input_snn = preg_replace("/[^0-9]/", "", trim($temp_input_ssn));
+		$temp_input_snn = preg_replace('/\D/', '', trim($temp_input_ssn));
 		$temp_len = strlen($temp_input_ssn);
 		$retval = "";
 		if($temp_len > 3){
