@@ -52,7 +52,7 @@
 				
 				echo "<div class='results'>\n";
 				if(mysql_num_rows($res)){
-					echo "<h5> Courses for Professor with SSN: " . ssnToStr($_GET["ssn"]) . "</h5>"; 
+					echo "<h5> Courses for Professor with SSN: " . ssnToStr(formatSSN($_GET["ssn"])) . "</h5>"; 
 					echo "<table> <tr> 
 							<th> Course name </th>
 							<th> Classroom </th>
