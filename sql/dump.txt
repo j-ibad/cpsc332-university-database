@@ -1,3 +1,6 @@
+/** Filename: dump.txt **/
+/** Database contents after executing create.sql script and fill.sql script **/
+
 Professor:
 +-----------+---------------+--------+------+---------+--------+-----------+-----------+--------------------+----------------+-------+-------+
 | SSN       | Pname         | Ptitle | Psex | Degree  | Salary | Area_code | Tel7Digit | Street             | City           | State | ZIP   |

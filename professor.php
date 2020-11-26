@@ -1,3 +1,6 @@
+<!-- Filename: professor.php-->
+<!-- By: Josh Ibad-->
+
 <html>
 <head>
 <title> CPSC332-01: "CSUF - University Database: Professor"</title>

@@ -1,3 +1,7 @@
+/** Filename: create.sql **/
+/** By: Josh Ibad */
+
+
 CREATE TABLE Professor (
 	SSN INT(9) UNSIGNED NOT NULL,
 	Pname VARCHAR(100) NOT NULL,
@@ -14,7 +18,6 @@ CREATE TABLE Professor (
 	
 	PRIMARY KEY (SSN)
 );
-
 
 CREATE TABLE Department(
 	Dep_ID INT(5) UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -63,7 +66,6 @@ CREATE TABLE Student (
 	PRIMARY KEY (CWID),
 	FOREIGN KEY (Major_DepID) REFERENCES Department(Dep_ID)
 );
-
 
 CREATE TABLE Minor (
 	CWID INT(9) UNSIGNED NOT NULL,

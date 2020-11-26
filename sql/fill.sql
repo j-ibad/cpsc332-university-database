@@ -1,3 +1,7 @@
+/** Filename: fill.sql **/
+/** By: Josh Ibad*/
+
+
 /**================= Minimum 3 Professors =================*/
 INSERT INTO Professor(SSN, Pname, Ptitle, Psex, Degree, Salary, Area_code, Tel7Digit, Street, City, State, ZIP)
 VALUES (111111111, "Fred Johnson", "Mr.", "M", "BS CS", 93830, 239, 2000529, "62 Lyme Street", "Loxahatchee", "FL", 33470);

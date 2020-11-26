@@ -1,3 +1,6 @@
+<!-- Filename: student.php-->
+<!-- By: Josh Ibad -->
+
 <html>
 <head>
 <title> CPSC332-01: "CSUF - University Database: Student"</title>

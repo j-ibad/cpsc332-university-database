@@ -1,3 +1,6 @@
+/** Filename: tab.js **/
+/** By: Josh Ibad */
+
 function selectTab(evt, target) {
 	var i, tabcontent, tablinks;
 	tabcontent = document.getElementsByClassName("tabcontent");
